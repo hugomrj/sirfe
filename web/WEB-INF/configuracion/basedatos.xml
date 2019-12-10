@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+            
+    <entry key="server">localhost</entry>
+    
+    <entry key="database">sirfe_database</entry>    
+    
+    <entry key="user">hugo</entry>
+    
+    <entry key="password">12345</entry>  
+    
+    <entry key="puerto">5432</entry>    
+
+</properties>

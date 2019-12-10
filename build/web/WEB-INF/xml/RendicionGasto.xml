@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.rendiciones_gastos">      
+        
+            <id name="rendicion"/>            
+            
+            <column name="transferencia"/>            
+            <column name="resolucion_numero"/>
+            <column name="tipo_comprobante"    foreign = "TipoComprobante" />
+            <column name="comprobante_numero"/>
+            <column name="objeto" foreign = "ObjetoGasto"  />
+            <column name="concepto"/>
+            <column name="fecha"/>
+            <column name="importe"/>
+            <column name="observacion"/>
+            
+            <column name="consejo"  foreign = "ConsejoSalud" />
+            
+            <column name="ruc_factura"/>
+            <column name="timbrado_venciomiento"/>            
+            
+    </table>
+    
+</root>
+

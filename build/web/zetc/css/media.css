@@ -1,0 +1,380 @@
+
+    #wrapper {
+        width: 96%;           
+        margin-top: 1%;
+    }   
+    
+    
+    #panel_central{    
+        width: 75%;
+    }
+    
+
+    
+
+@media only screen and (max-width : 1400px) {
+    #wrapper {
+        width: 97%;   
+        margin-top : 0.8%;
+    }   
+    #panel_central{    
+        width: 80%;
+    }    
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 1100px) {
+    #wrapper {
+        width: 98%;   
+        margin-top : 0.6%;
+    }   
+    #panel_central{    
+        width: 85%;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width : 800px) {
+    #wrapper {
+        width: 99%;   
+        margin-top : 0.4%;        
+    }  
+    #panel_central{    
+        width: 90%;
+    }        
+        
+    body {
+        margin: 0;        
+    }
+    
+    
+    nav#nav{
+       display: flex;
+    }
+    
+
+    #menubar {
+        position: absolute;
+        top: 33px;
+        left: 0;
+        margin-left: 0.5%;
+        visibility: hidden;
+        width: 450px;
+    }    
+
+    #menubar a {
+        justify-content: space-between;
+        width: auto;
+        padding-left: 0.4rem; 
+    }
+
+    #div-icon-menu{
+        visibility: visible;
+        display: flex;
+    }
+
+
+    #menubar > ul {
+        flex-direction: column;
+    }
+
+    #menubar ul > li{
+        width: 100%;
+        width: auto;
+    } 
+
+
+    #menubar ul li:hover ul{
+        /*overflow-y:auto;
+        overflow-x:hidden;
+        */
+        height:auto;
+        position: relative;
+    }
+
+   #menubar ul ul {
+    /*margin-left: 4px;*/
+    border-left-style: solid;
+    border-left-width: 4px;
+
+   } 
+    
+    
+    #menubar ul ul ul{    
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+  
+    
+    #btn-menu:checked ~ #menubar {
+	visibility: visible;    
+    }
+
+}
+
+
+
+
+@media only screen and (max-width : 500px) {
+    
+    
+    #wrapper {
+        width: 100%;   
+        margin-top : 0;
+        min-height: 500px;
+    }       
+    
+    
+    #panel_central{    
+        width: 95%;
+    }    
+        
+
+    #menubar {
+        margin-left: 0%;
+        top: 53px;
+    }    
+
+   nav#nav {        
+        height: 50px;
+    }
+    
+    
+    #menubar {
+        width: 100%;    
+    }
+    
+#menubar a {
+    height: 50px;
+}    
+      
+
+#div-icon-menu {
+    height: auto;
+}    
+
+.icon-menu, .icon-chevron-up,  .icon-search-mate, form .icono{
+    font-size: 3rem;
+}
+
+
+    
+    body {
+        margin: 0;        
+    }          
+    
+    body {
+        margin: 0;        
+    }            
+        
+    .f-line{
+        flex-direction: column;
+    }
+
+    .f-campo{
+        margin-bottom: 0.5rem;
+        margin-top: 10px;
+        height: auto;
+    }
+        
+    
+    section.centro{        
+        width: 90%;
+        justify-content: start;
+    }
+   
+    
+
+    *[class^='bl-']{
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .bl-2{        
+        width: 50px;
+    }    
+    
+    
+    
+    form label{ 
+        font-size: 16px;
+    }
+
+    form input, form  select, form output { 
+        font-size: 24px;  
+        padding-bottom: 10px;
+    }
+    
+    
+    form  select{ 
+        height: 40px;
+    }
+
+    
+
+    
+    
+    .botones {
+        justify-content: center;
+    }
+
+    .botonA, .botonB {        
+        height: 40px;
+    }    
+    
+    
+    hr.e40 {
+          margin: 10px;
+    }
+    
+    
+
+ .capaclara
+ {
+    padding-left: 5px;
+    padding-right: 5px;
+ }    
+    
+    
+.pagination li {  
+    font-size: 24px;
+} 
+ 
+ 
+
+.pagination a {  
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+    
+/*prueba tablas */
+
+
+
+.table-responsive-vertical > table {
+    border-bottom: 1px solid;
+}
+
+
+
+.table-responsive-vertical > table > thead, 
+.table-responsive-vertical > table > tfoot {
+    display:none;
+}
+
+
+.table-responsive-vertical > table > tbody {
+    display: block;
+}
+
+
+.table-responsive-vertical > table > tbody > tr {
+    display: block;    
+    border-top-width: 1px;
+    border-top-style: solid;
+        
+}
+
+.table-responsive-vertical > table > tbody > tr > td{
+
+    display: block;
+    vertical-align: middle;
+    text-align: right;
+    
+      min-height: 16px;
+}
+
+
+
+.table-responsive-vertical > table > tbody > tr > td[data-title]:before{
+    content: attr(data-title);
+    float: left;
+    font-weight: bold;
+    /*font-size: inherit;*/
+    /*font-weight: 500;*/
+    color: gray;
+    
+    text-align: center;
+    display: block;
+}
+
+
+
+.table-responsive-horizontal {
+        display: block;
+       overflow-x: auto;
+
+}
+
+
+
+.tguia > th {
+    
+    width: 50px;
+    
+}
+
+.capaoscura {
+    justify-content: flex-start ;
+}
+
+
+/*
+.table-responsive-vertical > table > tbody > tr  > td, 
+.table-responsive-vertical > table > tbody > tr:nth-child(odd){    
+    background-color: white;
+}
+*/
+/*
+.table-responsive-vertical > table > tbody > tr:nth-child(odd) > td{
+    background-color: var(--fondo-body);
+}
+*/
+
+/*
+.table-responsive-vertical > table > tbody > tr > td:nth-child(odd){
+    background-color: red;
+}
+
+.table-responsive-vertical > table > tbody > tr > td:nth-child(odd){
+    background-color: red;
+}
+.table-responsive-vertical > table > tbody > tr > td:nth-child(even){
+    background-color: blue;
+}
+*/
+
+
+
+
+}
+
+
+
+
+@media print {
+  
+    nav#nav,  form.icono  {
+       display: none;
+    }
+
+        
+    .icon-more-horizontal{
+        display: none;
+    }
+    
+    
+}

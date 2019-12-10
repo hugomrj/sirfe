@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    
+    <table 
+        name="sistema.usuarios">      
+        
+            <id name="usuario"/>            
+            
+                                  
+            <column name="cuenta" />
+            <column name="clave"  selectnot="selectnot"  />  
+            <column name="token_iat"/>
+                        
+    </table>
+    
+</root>
+

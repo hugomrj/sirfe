@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.consejos_salud">      
+        
+            <id name="cod"/>            
+                       
+            <column name="id"/>
+            <column name="cod"/>
+            <column name="descripcion"/>
+            <column name="dpto" foreign = "Departamento" />
+            <column name="rol" foreign = "Rol" />
+                        
+    </table>
+    
+</root>
+

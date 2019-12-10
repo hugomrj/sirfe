@@ -1,0 +1,410 @@
+
+<article>
+    
+    
+    
+    
+            <form
+            class="form"
+            action="#"
+            name="form_rendiciongasto"
+            id="form_rendiciongasto"                    
+            >
+       
+
+                <input                                                 
+                    type="hidden"
+                    name="transferencia"
+                    id="rendiciongasto_transferencia"
+                    value ="0"
+                    class="num" 
+                    data-pertenece ="RendicionGasto"
+                    />                
+                                  
+                
+                
+            <div class="f-line">
+                <div class="f-campo">
+
+                    <div class="bl-8">
+                        <label for="consejo">Consejo Salud:</label> 
+                    </div>
+                                        
+                        <div class="bl-4">
+                            <input 
+                                type="text" 
+                                name="consejo" 
+                                id="rendiciongasto_consejo" 
+                                class="num" 
+                                disabled="disabled"
+                                data-vista ="nojson"
+                                >
+                        </div>                                                            
+
+                        <div class="bl-1"></div>                                                                                
+
+                        <div class="bl-20 out">    
+                            
+                            <input                                                 
+                                type="text"
+                                id="rendiciongasto_consejo_descripcion"     
+                                disabled="disabled"
+                                data-vista ="nojson"
+                                />                                                
+                            
+                        </div>                           
+                        
+                </div>    
+            </div>                
+                
+                
+        
+                
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="resolucion_numero">Resolucion Nro:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="text"
+                                name="resolucion_numero"
+                                id="rendiciongasto_resolucion_numero"   
+                                disabled="disabled"
+                                />
+                        </div>
+
+                    </div>    
+                </div>                    
+
+                
+                
+                
+                
+                
+                
+                <div class="f-line">
+                    <div class="f-campo">
+                        <div class="bl-8">
+                            <label for="tipo_comprobante">Tipo Comprobante:</label> 
+                        </div>
+
+                        <div class="bl-16">
+                            
+                            <input                                                 
+                                type="text"
+                                name="tipo_comprobante"
+                                id="rendiciongasto_tipo_comprobante"   
+                                disabled="disabled"
+                                />                            
+                            
+                        </div>                        
+                    </div>    
+                    <div class="bl-1"></div>
+                    
+                    
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="comprobante_numero">Comprobante Nro:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="text"
+                                name="comprobante_numero"
+                                id="rendiciongasto_comprobante_numero"                                       
+                                disabled="disabled"
+                                />
+                        </div>
+                    </div>                        
+                    
+                    
+                </div>                
+
+
+
+                
+
+                
+
+
+
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="objeto">Objeto de Gasto:</label> 
+                        </div>
+
+                        <div class="bl-4">
+                            <input                                                 
+                                type="text"
+                                name="objeto"
+                                id="rendiciongasto_objeto_objeto"                                   
+                                data-foreign ="ObjetoGasto"
+                                class="num" 
+                                value ="0"
+                                disabled="disabled"
+                                />
+                        </div>
+                    </div>   
+                    
+                     <div class="bl-1"></div>
+                     
+                    <div class="f-campo">
+                        <div class="bl-20 out">      
+                            <output 
+                                id="rendiciongasto_objeto_descripcion" >                            
+                            </output>
+                        </div>                         
+                    </div>    
+                                 
+            </div>
+
+                
+
+                <div class="f-line">
+                    <div class="f-campoflo">
+
+                        <div class="bl-8">
+                            <label for="concepto">Concepto:</label> 
+                        </div>
+
+                        <div class="bl-26">
+                            <textarea                                                 
+                                name="concepto"
+                                id="rendiciongasto_concepto"
+                                disabled="disabled"
+                                />
+                            </textarea>                
+                        </div>
+                    </div>    
+                </div>                    
+
+
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="fecha">Fecha:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="date"
+                                name="fecha"
+                                id="rendiciongasto_fecha"       
+                                disabled="disabled"
+                                />
+                        </div>
+                    </div>    
+                    
+                    <div class="bl-4"></div>
+                    
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="importe">Importe:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="text"
+                                name="importe"
+                                id="rendiciongasto_importe"       
+                                class="num" 
+                                disabled="disabled"
+                                />
+                        </div>
+                    </div>    
+                    
+                    
+                </div>                    
+
+
+                
+
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="observacion">Observacion:</label> 
+                        </div>
+
+                        <div class="bl-26">
+                            <input                                                 
+                                type="text"
+                                name="observacion"
+                                id="rendiciongasto_observacion"   
+                                disabled="disabled"
+                                />
+                        </div>
+
+                    </div>    
+                </div>                    
+
+                               
+                
+                
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="ruc_factura">Ruc:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="text"
+                                name="ruc_factura"
+                                id="rendiciongasto_ruc_factura"    
+                                disabled="disabled"
+                                />
+                        </div>
+
+                    </div>    
+                    
+                    <div class="bl-1"></div>
+
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="timbrado_venciomiento">Venc. timbrado:</label> 
+                        </div>
+
+                        <div class="bl-10">
+                            <input                                                 
+                                type="date"
+                                name="timbrado_venciomiento"
+                                id="rendiciongasto_timbrado_venciomiento"       
+                                disabled="disabled"
+                                />
+                        </div>
+                    </div>    
+                    
+                    
+                </div>                    
+
+        </form>
+
+    
+    
+    
+    
+    
+</article>
+
+
+
+<article>
+    
+        
+    
+    <form 
+            class="form" 
+            name="form_rendicionverificacion" 
+            id="form_rendicionverificacion" 
+            style="
+
+                border: 1px solid;
+                padding: 30px;
+                padding-top: 0px;
+                margin-top: 30px;
+                border-color: thistle;
+            ">
+            
+
+            
+            <input                                                 
+                    type="hidden"
+                    name="verificacion"
+                    id="rendicionverificacion_verificacion"
+                    class="num" 
+                    value ="0"
+                    data-pertenece ="RendicionVerificacion"
+                    
+                    
+                    />                
+            
+            
+                
+                <input                                                 
+                    type="hidden"
+                    name="rendicion"
+                    id="rendicionverificacion_rendicion"
+                    class="num" 
+                    value ="0"
+                    data-pertenece ="RendicionVerificacion"
+                    data-foreign ="Rendicion"                    
+                    />                
+                
+                            
+                
+                                            
+                
+                
+
+                <div class="f-line">
+                    <div class="f-campo">
+
+                        <div class="bl-8">
+                            <label for="comentario">Comentario:</label> 
+                        </div>
+
+                        <div class="bl-26">
+                            <input                                                 
+                                type="text"
+                                name="comentario"
+                                id="rendicionverificacion_comentario"                                   
+                                />
+                        </div>
+
+                    </div>    
+                </div>                    
+
+                
+                
+                
+                <div class="f-line">
+                    <div class="f-campo">
+                        <div class="bl-8">
+                            <label for="estado">Estado:</label> 
+                        </div>
+
+                        <div class="bl-16">
+                                <select name="estado" 
+                                        id="rendicionverificacion_estado"                                                 
+                                         >   
+                                </select>      
+                        </div>
+                    </div>                                
+                </div>                
+                
+            
+    </form>
+
+
+
+
+</article>       
+
+
+
+<article id="rendiciongasto-acciones">
+    <pre></pre>
+</article>
+                
+
+
+<article id="rendiciongasto-tabuladores">
+    <pre></pre>
+</article>
+                

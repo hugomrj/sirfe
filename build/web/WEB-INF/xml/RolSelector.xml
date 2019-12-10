@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="sistema.roles_x_selectores">           
+            
+            <id name="id"/>                        
+            
+            <column name="rol" foreign = "Rol"/> 
+            <column name="selector" foreign = "Selector"/> 
+            
+    </table>
+    
+</root>
+
+

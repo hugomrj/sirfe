@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    
+    <table 
+        name="aplicacion.rendiciones_verificacion">      
+        
+            <id name="verificacion"/>            
+                                           
+            <column name="rendicion" foreign = "RendicionGasto" />
+            
+            <column name="estado" foreign = "VerificacionEstado" />
+            
+            <column name="comentario" />
+                        
+    </table>
+    
+</root>
+
+

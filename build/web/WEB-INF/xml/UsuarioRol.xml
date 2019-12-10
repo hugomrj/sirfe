@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="sistema.usuarios_x_roles">           
+            
+            <id name="id"/>                                    
+            <column name="usuario" foreign = "Usuario"/> 
+            <column name="rol" foreign = "Rol"/> 
+            
+            
+    </table>
+    
+</root>
+
+

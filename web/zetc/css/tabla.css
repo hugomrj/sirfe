@@ -1,0 +1,342 @@
+
+
+/* TABLAS */
+
+
+table{
+    width: 100%;
+}
+
+.tableA, .tableB, .tableD {
+    border-collapse: collapse;
+    border-bottom: none;
+}
+
+.tableA thead tr,
+.tableB thead tr
+{   
+    height: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.tableA thead tr th
+/*.tableB thead tr th*/
+{   
+    border: 1px solid;
+}
+
+.tableA td
+,.tableB td
+{
+    border: 0rem solid;
+    
+    padding-top: 8px;
+    padding-bottom: 8px;    
+    
+    cursor: default;
+    height: 24px;
+    height: auto;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+
+
+
+.tableA tfoot
+/*,.tableB tfoot*/
+{
+    border: solid 1.5px;
+  border-left-width: 0px;
+    border-right-width: 0px;    
+}
+
+
+
+
+
+
+.tableA tfoot tr  td {    
+    font-weight: 600;    
+}
+
+
+
+table thead  .tguia {
+    height: 0px;
+}
+
+table thead  .tguia th {
+    border: 0px;
+    padding: 0px;
+}
+
+
+
+
+/*
+.tableA tfoot tr td
+,.tableB tfoot tr td
+{
+    font-weight: 600;
+    padding-top: 0.1rem;
+    border: 0rem ;
+    border-top: 1px solid;
+    border: 1px solid;
+    
+    text-transform: uppercase;
+    font-size: 0.8em;    
+}
+*/
+
+
+
+
+.tableB thead {
+    border-bottom: solid 2px;
+}
+
+.tableB thead th  {
+    border: none ;    
+}
+
+.tableB tbody tr  {
+    border-bottom: solid 1px;
+}
+
+.tableB tfoot tr  {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+.tableB tfoot {
+    border-top: solid 2px ;
+}
+
+.tableB tfoot tr th {
+    border:none;
+}
+
+
+/* guias de cabecera*/
+
+
+
+/*
+.tableB th, .tableB tfoot tr td,  .tableB tbody  {
+    border: none ;
+    border-bottom: 1px solid;
+}
+*/
+
+
+
+/*
+.tableD  th, 
+.tableD td 
+{
+    border: 0rem solid;
+    padding-bottom: 0.2em;    
+    cursor:default;
+  }
+*/
+
+/*
+.tableB th, .tableB tfoot tr td,  .tableB tbody  {
+    border: none ;
+    border-bottom: 1px solid ;
+    border-top: 1px solid ;
+}
+*/
+/*
+.tableB tfoot tr td {    
+    border: none ;
+}
+*/
+
+
+
+.tableC thead{
+    border-bottom: 1px solid ;
+    border-top: 1px solid ;
+}
+
+/*
+.tbusqueda tbody, .tbusqueda th{
+        border-bottom: 2px solid;
+        border-top: 2px solid ;
+}
+*/
+
+
+.tableD th {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    }
+
+.tableD td {    
+    font-size: 0.90rem;    
+}
+  
+
+
+
+
+
+    table .c5,
+    table .c5n,
+    table .c5t
+    { 
+        width: 5rem;
+    }    
+
+    table .c7,
+    table .c7n,
+    table .c7t
+    { 
+        width: 7rem;
+    }     
+        
+    table .c10,
+    table .c10n,
+    table .c10t    
+    { 
+        width: 10rem;
+    }    
+
+    table .c15,
+    table .c15n,
+    table .c15t    
+    { 
+        width: 15rem;
+    }    
+       
+    
+    table .c20,
+    table .c20n,
+    table .c20t    
+    { 
+        width: 20rem;
+    }    
+
+    table .c20t,
+    table .c20t,
+    table .c20t
+    {         
+        padding-left: 0.2rem;
+    }     
+ 
+    
+       
+    
+    table .c5n,
+    table .c7n,
+    table .c10n,
+    table .c15n,
+    table .c20n
+    {         
+        text-align: right;
+        padding-right: 0.2rem;
+    }        
+    
+    table .c5t,
+    table .c7t,
+    table .c10t,    
+    table .c15t,
+    table .c20t
+    {         
+        padding-left: 0.2rem;
+    }        
+    
+    
+   
+    
+
+
+
+.tableD tfoot tr  td {    
+    border-bottom: 1px solid ;
+    padding: 0em ;
+    
+    border-top: 1px solid ;
+    font-weight: 600;
+    
+}
+
+
+
+
+
+    
+    
+.tableC table, th, td {    
+    border: 1px solid black;    
+}
+  
+.tableC {        
+    border-collapse: collapse; 
+}    
+    
+.tableC  .tituloregistro{        
+    border: none; 
+}        
+    
+.tableC  .lineablanco{        
+    border: none; 
+}        
+
+
+
+.tableE thead tr th,
+.tableE tbody tr td,
+.tableE tfoot tr td
+{   
+    border: none;    
+    font-weight: normal;
+}
+
+.tableE thead tr th, 
+.tableE tfoot tr td 
+{
+    font-weight: 600;
+}
+
+.tableE tfoot tr td 
+{
+    font-weight: 600;
+    padding-top: 1rem;
+    border-top: 1px solid;
+}
+
+
+.tableE {
+    border-collapse: collapse;
+}
+
+
+
+
+table .ca-5{        
+    width: 50px; 
+}
+
+table .ca-10{        
+    width: 100px; 
+}
+
+table .ca-20{        
+    width: 200px; 
+}
+
+table .ca-30{        
+    width: 300px; 
+}

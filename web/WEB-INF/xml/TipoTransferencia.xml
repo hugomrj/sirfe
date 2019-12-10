@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.tipos_transferencias">      
+        
+            <id name="tipo_transferencia"/>               
+            <column name="descripcion"/>
+
+    </table>
+    
+</root>
+

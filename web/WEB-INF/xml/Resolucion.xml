@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.resoluciones">      
+        
+            <id name="id" />            
+            
+            <column name="numero" />
+            <column name="estado" />            
+            <column name="descripcion" />
+                        
+    </table>
+    
+</root>
+
+

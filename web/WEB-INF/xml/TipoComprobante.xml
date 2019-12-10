@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.tipos_comprobantes">      
+        
+            <id name="tipo_comprobante"/>                        
+            <column name="descripcion"/>
+
+    </table>
+    
+</root>
+
+
+

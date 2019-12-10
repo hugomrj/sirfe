@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="sistema.sucursales">      
+        
+            <id name="sucursal"/>            
+            <column name="sucursal" />
+            <column name="nombre" />
+                        
+    </table>
+    
+</root>
+

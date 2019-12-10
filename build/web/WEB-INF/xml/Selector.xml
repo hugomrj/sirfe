@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="sistema.selectores">      
+        
+            <id name="id" property="selector"/>            
+            <column name="superior"/>
+            <column name="descripcion"/>
+            <column name="ord"/>
+            <column name="link"/>
+            
+    </table>
+    
+</root>
+
+

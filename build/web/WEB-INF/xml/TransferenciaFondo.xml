@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.transferencias_fondos">      
+        
+            <id name="transferencia"/>            
+            
+            <column name="resolucion_numero"/>
+            <column name="saldo_anterior"/>
+            <column name="origen_ingreso"/>
+            <column name="recibo_numero"/>
+            <column name="comprobante_numero"/>
+            <column name="deposito_fecha"/>
+            <column name="total_depositado"/>
+            <column name="total_rendicion"/>
+                        
+            <column name="consejo"  foreign = "ConsejoSalud" />
+            <column name="tipo_transferencia"  foreign = "TipoTransferencia" />
+            
+                        
+    </table>
+    
+</root>
+
