@@ -47,21 +47,11 @@ public class Practica04 {
 
                 String resolucion = "61/19";
                 
-                ResolucionDAO dao = new ResolucionDAO();  
-                
-                Resolucion componente = new Resolucion();       
-                
-                
-                componente = dao.estado_transferencia(403, resolucion);
-                
-                String json = gson.toJson( componente );       
-    
-    System.out.println( json );
-                
-              //String json = gson.toJson( json );    
-                                
-                
-   
+  String auxstr = "http://181.126.90.15/nextcloud";
+  
+  auxstr = auxstr.substring(0, 1);
+
+  System.out.println( auxstr );       
             
             
             
