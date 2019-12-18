@@ -349,7 +349,19 @@ function edicion_verificacion ( id ){
 
 
         //rendiciongasto-acciones
+        
+        
+        //var objboton = new TransferenciaFondo();    
+        
+        
+        
+        var objboton = {  
+                    tipo: 'transferenciafondo'
+        }        
+        
+        boton.ini(objboton);
         document.getElementById('rendiciongasto-acciones').innerHTML = boton.basicform.get_botton_edit();
+        
 
 
         
@@ -366,7 +378,7 @@ function edicion_verificacion ( id ){
             function(event) {      
 
                 modal.ventana_cerrar("renve");   
-                msg.error.mostrar("cerrar modal");           
+                //msg.error.mostrar("cerrar modal");           
                 
             },
             false
