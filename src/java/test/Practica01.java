@@ -21,6 +21,8 @@ import py.com.aplicacion.departamento.Departamento;
 import py.com.aplicacion.departamento.DepartamentoDAO;
 import py.com.aplicacion.rendicion_gasto.RendicionGasto;
 import py.com.aplicacion.rendicion_gasto.RendicionGastoDAO;
+import py.com.aplicacion.rendicion_verificacion.RendicionVerificacion;
+import py.com.aplicacion.rendicion_verificacion.RendicionVerificacionDAO;
 import py.com.aplicacion.transferencia_fondo.TransferenciaFondo;
 import py.com.aplicacion.transferencia_fondo.TransferenciaFondoDAO;
 import py.com.base.sistema.usuario.Usuario;
@@ -48,14 +50,25 @@ public class Practica01 {
             
             //Usuario usuario = new Usuario();
             Persistencia persistencia = new Persistencia();
+            Gson gson = new Gson();          
+            
+            
+            Integer page = 1;
+            Integer consejo = 401;
+            Integer usuario = 357;
+            
                
             
-            RendicionGasto r = new RendicionGasto();
-            r.setImporte(500L);
-
-           r.setTransferencia(17);
-            
-          new RendicionGastoDAO().insert(r);
+                RendicionVerificacionDAO dao = new RendicionVerificacionDAO();      
+                
+                String resolucion = "61/19";
+                                
+                List<RendicionVerificacion> lista = dao.list(page, usuario, consejo, resolucion);                
+                            
+                
+    String json = gson.toJson( lista );                     
+    
+    System.out.println(json);
                 
 
             

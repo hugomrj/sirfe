@@ -354,11 +354,23 @@ function edicion_verificacion ( id ){
 
         
         var btn_cancelar = document.getElementById('btn_transferenciafondo_cancelar');         
-        btn_cancelar.onclick = function(  )
+/*        btn_cancelar.onclick = function(  )
         {  
             modal.ventana_cerrar("renve");   
         };  
+*/
 
+
+
+        btn_cancelar.addEventListener('click',
+            function(event) {      
+
+                modal.ventana_cerrar("renve");   
+                msg.error.mostrar("cerrar modal");           
+                
+            },
+            false
+        ); 
 
 
 

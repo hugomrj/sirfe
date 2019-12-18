@@ -14,7 +14,9 @@ WHERE
   departamentos.dpto = consejos_salud.dpto 
   and verificador = v0  
   and consejo =  v1 
-  and resolucion_numero like 'v2' 
+  and resolucion_numero like 'v2'  
+
+order by estado    
 
 
 
