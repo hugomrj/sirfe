@@ -49,22 +49,23 @@ public class SelectorUI {
 
                     strHtml +=" <a href='";                
                     if ((res.getString(6) != null) && !(res.getString(6).equals("")) ) {
-                        
-  
+                         
 
                         String auxstr = res.getString(6).toString().trim();
                         auxstr = auxstr.substring(0, 1);
 
                         if (auxstr.equals("/")){
+                            
                             strHtml +=  "/sirfe" +  res.getString(6).toString().trim();
+                        
                         }
                         else{
-                            strHtml +=  "" +  res.getString(6).toString().trim();
+                            
+                            
+                            strHtml +=   "" +  res.getString(6).toString().trim() +"' " +" target='_blank";
+        
                         }
-  
-                        
-                                      
-                        
+                       
                     }
                     
                     else{
