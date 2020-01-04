@@ -346,7 +346,7 @@ var busqueda =
     modal: {                    
         objeto: function( objeto ) {
 
-            
+
             if (!(objeto.url === undefined)) {                                    
                 ajax.url = objeto.url;                                
             }

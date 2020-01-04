@@ -214,6 +214,16 @@ var tabla =
         tabla.gene();       
         tabla.formato(obj);
         tabla.lista_registro(obj, fn);        
+    
+// ocultar        
+
+            if (!(typeof  obj.oculto == "undefined")){
+    
+                tabla.oculto = obj.oculto ;
+                tabla.ocultar();                        
+                
+            }
+            
         
         document.getElementById( obj.tipo + '_paginacion' ).innerHTML = paginacion.gene();      
         paginacion.move(obj, buscar, fn );          

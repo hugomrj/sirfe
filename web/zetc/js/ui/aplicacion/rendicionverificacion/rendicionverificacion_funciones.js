@@ -60,11 +60,19 @@ function verificacion_form_html(dom){
                 verificacion_tabla_gene ( );  
             }
             
+            ob.oculto = [2,3];    
+            
+            modal.ancho = 700;   
+            paginacion.pagina = 1;            
             busqueda.modal.objeto( ob );
             
-            ob.tablacamposoculto = [2,3];    
-            tabla.oculto = ob.tablacamposoculto;        
+            //ob.tablacamposoculto = [2,3];    
+            tabla.id = "consejosalud-tabla";            
+            tabla.oculto  = ob.oculto ; 
+            
             tabla.ocultar();     
+            
+            
 
         };   
         
@@ -133,6 +141,9 @@ function verificacion_form_html(dom){
                     },                    
                 };
             //busqueda.modal.custom(ins);           
+            
+            paginacion.pagina = 1;            
+
             busqueda.modal.objeto( ins );            
         };   
         

@@ -78,7 +78,101 @@ function consulta_interaccion (){
     
         
         
+   
+    var dpto_desde = document.getElementById('dpto_desde');          
+    dpto_desde.onblur  = function() {             
         
+            dpto_desde.value  =  fmtNum(dpto_desde.value) ;            
+            dpto_desde.value  =  NumQP(dpto_desde.value);
+            
+             var para = dpto_desde.value;
+        
+            ajax.url = html.url.absolute()+'/api/departamentos/'+para+'' ;
+            ajax.metodo = "GET";   
+            var_json = ajax.private.json();        
+            
+            try {
+                var oJson = JSON.parse( var_json ) ;     
+                document.getElementById('dpto_desde_descripcion').value =  oJson["descripcion"] ;                   
+            } catch(e) {
+                document.getElementById('dpto_desde_descripcion').value =  "";                   
+            }    
+            
+            consulta_datos();
+    };            
+
+    
+    
+    
+        var buscar_dpto_desde = document.getElementById('ico-more-dpto_desde');         
+        buscar_dpto_desde.onclick = function(  )
+        {              
+            
+            var ob = new Departamento();                            
+            ob.acctionresul = function(id) {    
+                dpto_desde.value = id;
+                dpto_desde.onblur(); 
+            };                    
+            modal.ancho = 760;                        
+            
+            paginacion.pagina = 1;
+            busqueda.modal.objeto(ob);           
+            tabla.id = "departamento-tabla";
+            tabla.oculto = [2]
+            tabla.ocultar();                        
+        };   
+    
+    
+    
+    
+    
+    var dpto_hasta = document.getElementById('dpto_hasta');          
+    dpto_hasta.onblur  = function() {             
+        
+            dpto_hasta.value  =  fmtNum(dpto_hasta.value) ;            
+            dpto_hasta.value  =  NumQP(dpto_hasta.value);
+
+
+             var para = dpto_hasta.value;
+        
+            ajax.url = html.url.absolute()+'/api/departamentos/'+para+'' ;
+            ajax.metodo = "GET";   
+            var_json = ajax.private.json();        
+            
+            try {
+                var oJson = JSON.parse( var_json ) ;     
+                document.getElementById('dpto_hasta_descripcion').value =  oJson["descripcion"] ;                   
+            } catch(e) {
+                document.getElementById('dpto_hasta_descripcion').value =  "";                   
+            }    
+            
+        consulta_datos();
+    };            
+    
+
+    
+        var buscar_dpto_hasta = document.getElementById('ico-more-dpto_hasta');         
+        buscar_dpto_hasta.onclick = function(  )
+        {              
+            
+            var ob = new Departamento();                            
+            ob.acctionresul = function(id) {    
+                dpto_hasta.value = id;
+                dpto_hasta.onblur(); 
+            };                    
+            modal.ancho = 760;                        
+            
+            paginacion.pagina = 1;
+            busqueda.modal.objeto(ob);           
+            tabla.id = "departamento-tabla";
+            tabla.oculto = [2]
+            tabla.ocultar();            
+            
+        };   
+    
+            
+    
+
         
     var consejo_desde = document.getElementById('consejo_desde');          
     consejo_desde.onblur  = function() {             
@@ -103,7 +197,7 @@ function consulta_interaccion (){
     };            
         
         
-        
+
         var buscar_consejo_desde = document.getElementById('ico-more-consejo_desde');         
         buscar_consejo_desde.onclick = function(  )
         {              
@@ -113,12 +207,22 @@ function consulta_interaccion (){
                 consejo_desde.onblur(); 
             };                    
             modal.ancho = 760;                        
-            busqueda.modal.objeto(ob);           
-            tabla.id = "consejosalud-tabla";
-            tabla.oculto = [3]
+            
+            ob.recurso = "consejosalud/depto/" + dpto_desde.value +"/"+dpto_hasta.value;
+            ob.tablacampos =  ['cod', 'descripcion', 'dpto_descripcion', 'dpto'];
+            ob.oculto = [3];
+            
+            
+            paginacion.pagina = 1;
+            busqueda.modal.objeto(ob);         
+            
+            tabla.id = "consejosalud-tabla";            
+            tabla.oculto = [3];
             tabla.ocultar();            
+            
         };   
                 
+                        
         
         
         
@@ -155,15 +259,18 @@ function consulta_interaccion (){
                 consejo_hasta.onblur(); 
             };                    
             modal.ancho = 760;                        
-            busqueda.modal.objeto(ob);       
-            tabla.id = "consejosalud-tabla";
-            tabla.oculto = [3]
-            tabla.ocultar();
             
-        };   
-                
-                
-        
+            ob.recurso = "consejosalud/depto/" + dpto_desde.value +"/"+dpto_hasta.value;
+            ob.tablacampos =  ['cod', 'descripcion', 'dpto_descripcion', 'dpto'];
+            ob.oculto = [3];
+            
+            paginacion.pagina = 1;
+            busqueda.modal.objeto(ob);           
+            tabla.id = "consejosalud-tabla";
+            
+            tabla.oculto = [3];
+            tabla.ocultar();            
+        };           
         
         
 

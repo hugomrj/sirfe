@@ -68,8 +68,7 @@ public class DepartamentoWS_query {
             {                
                 autorizacion.actualizar();                                
                 
-                String json = "[]";
-                
+                String json = "[]";                
                 
                 if (!( fechadesde.trim().equals("0") || fechahasta.trim().equals("0")) )
                 {  

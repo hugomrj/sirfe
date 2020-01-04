@@ -9,6 +9,7 @@ package py.com.aplicacion.consejosalud;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -76,6 +77,65 @@ public class ConsejoSaludWS {
                         .entity(json)
                         .header("token", autorizacion.encriptar())
                         .header("total_registros", dao.total_registros )
+                        .build();                       
+            }
+            else{
+                
+                return Response
+                    .status(Response.Status.UNAUTHORIZED)
+                    .header("token", null)
+                    .build();     
+                
+            }        
+        }     
+        catch (Exception ex) {
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error")
+                    .header("token", autorizacion.encriptar())
+                    .build();                                        
+        }      
+    }    
+    
+    
+    @GET    
+    @Path("/depto/{depto_desde}/{depto_hasta}")
+    public Response list_depto ( 
+            
+            @PathParam ("depto_desde") Integer depto_desde,
+            @PathParam ("depto_hasta") Integer depto_hasta,
+            
+            @HeaderParam("token") String strToken,
+            @QueryParam("page") Integer page) {
+        
+            if (page == null) {                
+                page = 1;
+            }
+
+        try {                    
+           
+            if (autorizacion.verificar(strToken))
+            {                
+                autorizacion.actualizar();                                
+                
+                
+                 String json = "[]";                
+                    
+                 ConsejoSaludJSON consejoJSON = new ConsejoSaludJSON();
+                 
+                JsonArray jsonarray = consejoJSON.list_depto(depto_desde, depto_hasta, page);
+                    
+                    json = jsonarray.toString();                
+                               
+                
+                
+               
+                                
+                return Response
+                        .status(Response.Status.OK)
+                        .entity(json)
+                        .header("token", autorizacion.encriptar())
+                        .header("total_registros", consejoJSON.total_registros )
                         .build();                       
             }
             else{

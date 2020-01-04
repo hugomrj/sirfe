@@ -160,8 +160,29 @@ public class ConsejoSaludRS  {
     }
    
                       
-    
-    
-    
+
+    public ResultSet  list_depto (  
+                        Integer depto_desde,
+                        Integer depto_hasta, 
+                        Integer page
+            ) 
+            throws Exception {
+        
+            statement = conexion.getConexion().createStatement();                  
+            
+            String sql = new ConsejoSaludSQL().list_depto(   depto_desde,  depto_hasta );
+            
+
+            this.total_registros =  BasicSQL.cont_registros(conexion, sql);            
+            
+            sql = sql + BasicSQL.limite_offset(page, lineas);
+            resultset = statement.executeQuery(sql);     
+            
+            conexion.desconectar();                
+            return resultset;                 
+            
+    }
+   
+                      
     
 }

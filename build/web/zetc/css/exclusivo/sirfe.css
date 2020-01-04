@@ -34,3 +34,13 @@ div img{
 
     
 }
+
+
+
+
+#header_logo {
+    
+    display: flex;
+    justify-content: space-between;
+    
+}

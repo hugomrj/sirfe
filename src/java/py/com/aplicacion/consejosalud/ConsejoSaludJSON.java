@@ -170,5 +170,55 @@ public class ConsejoSaludJSON  {
     }      
           
     
+
+    
+ 
+
+    public JsonArray  list_depto (
+            Integer depto_desde,
+            Integer depto_hasta, 
+            Integer page
+            ) {
+        
+        Map<String, String> map = null;        
+        JsonArray jsonarray = new JsonArray();      
+        RegistroMap registoMap = new RegistroMap();     
+        Gson gson = new Gson();               
+        
+        
+        try 
+        {   
+            
+            ConsejoSaludRS rs = new ConsejoSaludRS();            
+            ResultSet resulset = rs.list_depto(            
+                    depto_desde,
+                    depto_hasta, 
+                    page
+                    );                
+            
+            
+            while(resulset.next()) 
+            {  
+                map = registoMap.convertirHashMap(resulset);     
+                JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
+                jsonarray.add( element );
+            }                    
+            this.total_registros = rs.total_registros  ;   
+            
+        }         
+        catch (Exception ex) {                        
+            System.out.println(ex.getMessage());
+            throw new Exception(ex);
+        }
+        finally
+        {
+            return jsonarray ;         
+        }
+    }      
+          
+    
+    
+    
+    
         
 }

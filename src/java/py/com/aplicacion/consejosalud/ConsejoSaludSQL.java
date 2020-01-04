@@ -111,9 +111,26 @@ public class ConsejoSaludSQL {
         sql = readerSQL.get(  resolucion_estado, fecha_desde, fecha_hasta,
                 consejo_desde, consejo_hasta);              
         
-        
         return sql ;                     
         
+    }
+    
+              
+    
+    
+    public String list_depto  ( 
+                Integer depto_desde,
+                Integer depto_hasta        
+    ) 
+            throws IOException {
+        
+        String sql = "";                                 
+        ReaderT readerSQL = new ReaderT("ConsejoSalud");
+        readerSQL.fileExt = "list_depto.sql";
+
+        sql = readerSQL.get(  depto_desde, depto_hasta);              
+        
+        return sql ;                     
         
     }
     

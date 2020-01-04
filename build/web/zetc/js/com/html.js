@@ -20,7 +20,18 @@ var html =
             document.getElementById( html.menu.div ).innerHTML 
                     =  localStorage.getItem('menu');                    
             //redirect(ajax.state);            
-            //alert(  window.location.pathname );            
+            //alert(  window.location.pathname );      
+            
+            //  logo   sirfe   header
+            
+            
+            document.getElementById( "header_logo" ).innerHTML  =
+                    "<div><img src=\"../../ima/header/01.png\"/></div>\n\
+                    <div><img src=\"../../ima/header/02.png\"/></div>\n\
+                    <div><img src=\"../../ima/header/03.png\"/></div>\n\
+                    <div><img src=\"../../ima/header/04.png\"/></div>\n\
+                    <div><img src=\"../../ima/header/05.png\"/></div>";
+            
         }  ,                                
     },
     
