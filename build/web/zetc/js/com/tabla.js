@@ -218,10 +218,8 @@ var tabla =
 // ocultar        
 
             if (!(typeof  obj.oculto == "undefined")){
-    
                 tabla.oculto = obj.oculto ;
                 tabla.ocultar();                        
-                
             }
             
         

@@ -512,10 +512,16 @@ var busqueda =
             tabla.ini(obj);
             tabla.gene();              
             tabla.formato(obj);
-            
+                
                                                        
             tabla.lista_registro(obj, busqueda.modal.acctionresul  );            
-        
+
+// ocultar        
+            if (!(typeof  obj.oculto == "undefined")){
+                tabla.oculto = obj.oculto ;
+                tabla.ocultar();                        
+            }            
+            
             document.getElementById( obj.tipo + '_paginacion' ).innerHTML = paginacion.gene();      
           
             paginacion.move(obj, buscar, busqueda.modal.acctionresul  );          
