@@ -13,10 +13,8 @@ window.onload = function(  ) {
             
             reporte_form_inicio("formcent");
             
-            
         }
     
-        
 };
    
    

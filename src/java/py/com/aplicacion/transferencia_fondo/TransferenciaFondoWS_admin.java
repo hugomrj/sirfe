@@ -453,6 +453,9 @@ public class TransferenciaFondoWS_admin {
             if (autorizacion.verificar(strToken))
             {                
                 autorizacion.actualizar();                                
+
+                
+                Integer codconsejo = autorizacion.token.getConsejo();
                 
                 TransferenciaFondoJSON jsonarray = new TransferenciaFondoJSON();
                 
@@ -462,7 +465,8 @@ public class TransferenciaFondoWS_admin {
                 return Response
                         .status(Response.Status.OK)
                         .entity(json)
-                        .header("token", autorizacion.encriptar())                        
+                        .header("token", autorizacion.encriptar())       
+                        .header("total_registros",   jsonarray.total_registros )
                         .build();                       
                 
             }
@@ -516,6 +520,7 @@ public class TransferenciaFondoWS_admin {
                         .status(Response.Status.OK)
                         .entity(json)
                         .header("token", autorizacion.encriptar())                        
+                        .header("total_registros",   jsonarray.total_registros )
                         .build();                       
                 
             }

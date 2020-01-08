@@ -618,8 +618,7 @@ public class ConsejoSaludWS {
                         this.com = null;
                     }               
                }
-     
-                
+                    
                 
                 
                 return Response

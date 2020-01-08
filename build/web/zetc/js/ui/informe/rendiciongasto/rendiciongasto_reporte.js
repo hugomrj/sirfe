@@ -8,6 +8,75 @@ function reporte_form_inicio(dom){
         ajax.metodo = "GET";            
         document.getElementById( dom ).innerHTML =  ajax.public.html();       
       
+      
+        // obtener numero de consejo        
+        consejosalud_cabeceraformulario();
+        
+        var ico_consejo = document.getElementById('ico_consejo');
+        
+        if (globlal_consejo.value  == '0'){
+            
+
+                var ico_more_consejosalud = document.getElementById('ico-more-consejosalud');         
+                ico_more_consejosalud.onclick = function(  )
+                {              
+                    var ob = new ConsejoSalud();     
+                    //ob.recurso =   'consejosalud/verificador';
+                    ob.recurso =   'consejosalud';
+
+                    ob.acctionresul =  function (id) { 
+                        
+                        document.getElementById('globlal_consejo').value = id;
+                        document.getElementById('globlal_consejo').onblur();
+                        
+                        //verificacion_tabla_gene ( );  
+                    }
+
+                    ob.oculto = [2,3];    
+
+                    modal.ancho = 700;   
+                    paginacion.pagina = 1;            
+                    busqueda.modal.objeto( ob );
+
+                    //ob.tablacamposoculto = [2,3];    
+                    tabla.id = "consejosalud-tabla";            
+                    tabla.oculto  = ob.oculto ; 
+
+                    tabla.ocultar();     
+                };   
+
+
+
+                var verificacion_consejo_cod = document.getElementById('globlal_consejo');          
+                verificacion_consejo_cod.onblur  = function() {             
+
+
+                        verificacion_consejo_cod.value  = fmtNum(verificacion_consejo_cod.value);
+
+                        var para = verificacion_consejo_cod.value ;        
+                        ajax.url = html.url.absolute()+'/api/consejosalud/'+para ;
+                        ajax.metodo = "GET";   
+                        var_json = ajax.private.json();        
+
+
+                        try {
+                            var oJson = JSON.parse( var_json ) ;     
+                            document.getElementById('globlal_consejo_descripcion').value =  oJson["descripcion"] ;                   
+                        } catch(e) {
+                            document.getElementById('globlal_consejo_descripcion').value =  "";                   
+                        }       
+                };     
+            
+        }
+        
+        
+        else{
+            ico_consejo.style.display = "none";              
+            globlal_consejo.disabled = "true";
+        }
+        
+        
+        
      
         
         var buscar_transferencia = document.getElementById('ico-more-transferencia');         
@@ -15,7 +84,9 @@ function reporte_form_inicio(dom){
         {              
             
             modal.ancho = 500;                        
-
+            paginacion.pagina = 1;
+            
+            
             var ins = {  
                     tipo: 'transferenciafondo',        
                     url:  html.url.absolute() 
@@ -38,6 +109,7 @@ function reporte_form_inicio(dom){
             
             
             //busqueda.modal.custom(ins);           
+            
             busqueda.modal.objeto( ins );
             
         };   
@@ -53,37 +125,6 @@ function reporte_form_inicio(dom){
         }        
         
 
-
-
-        var transferenciafondo_consejo_cod = document.getElementById('transferenciafondo_consejo_cod');          
-        transferenciafondo_consejo_cod.onblur  = function() {             
-
-
-                transferenciafondo_consejo_cod.value  
-                        =  fmtNum(transferenciafondo_consejo_cod.value) ;
-
-                transferenciafondo_consejo_cod.value  =  NumQP(transferenciafondo_consejo_cod.value);
-
-                var para = transferenciafondo_consejo_cod.value;
-
-                ajax.url = html.url.absolute()+'/api/consejosalud/'+para+'' ;
-                ajax.metodo = "GET";   
-                var_json = ajax.private.json();        
-
-
-                try {
-                    var oJson = JSON.parse( var_json ) ;     
-                    document.getElementById('transferenciafondo_consejo_descripcion').value =  oJson["descripcion"] ;                   
-                } catch(e) {
-                    console.log(e); 
-                    document.getElementById('transferenciafondo_consejo_descripcion').value =  "";                   
-                }            
-
-        };     
-
-
-
-    
     
         
         
@@ -99,11 +140,13 @@ function reporte_form_inicio(dom){
                 
                     
                     var transferencia_resolucion_numero = document.getElementById('transferencia_resolucion_numero');            
+
+                
                 
                         
                     ajax.url = html.url.absolute()+"/AnexoB09/Reporte/rendicion.pdf"
                         +"?resolucion="+transferencia_resolucion_numero.value
-                        +"&consejo="+transferenciafondo_consejo_cod.value;
+                        +"&consejo="+document.getElementById('globlal_consejo').value;
                     ajax.private.jasper();                         
             },
             false
