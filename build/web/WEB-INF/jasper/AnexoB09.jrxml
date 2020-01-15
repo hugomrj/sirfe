@@ -14,8 +14,7 @@
 	</parameter>
 	<parameter name="par_usuario" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[
-SELECT 
+		<![CDATA[SELECT 
   transferencias_fondos.transferencia, 
   transferencias_fondos.resolucion_numero, 
   transferencias_fondos.saldo_anterior, 
@@ -53,9 +52,7 @@ WHERE
   tipos_comprobantes.tipo_comprobante = rendiciones_gastos.tipo_comprobante
   and transferencias_fondos.resolucion_numero like $P{par_resolucion}
   and transferencias_fondos.consejo = $P{par_consejo}
-  order by transferencias_fondos.resolucion_numero, transferencias_fondos.consejo
-
-  ]]>
+  order by transferencias_fondos.resolucion_numero, transferencias_fondos.consejo]]>
 	</queryString>
 	<field name="transferencia" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="transferencia"/>
@@ -167,7 +164,7 @@ WHERE
 					<textElement textAlignment="Center">
 						<font size="10"/>
 					</textElement>
-					<text><![CDATA[Decreto 1145 / 2019
+					<text><![CDATA[Decreto 1145 / 2020
 ]]></text>
 				</staticText>
 				<staticText>
@@ -413,11 +410,12 @@ TITULAR]]></text>
 					<text><![CDATA[(1) ENTIDAD:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="130" y="9" width="170" height="16" uuid="661f8b62-ecbf-40e1-8b3c-41fcf66c36ed"/>
+					<reportElement x="130" y="9" width="250" height="16" uuid="661f8b62-ecbf-40e1-8b3c-41fcf66c36ed"/>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{descripcion} + " - Resol. DGDS N° " + $F{resolucion_numero}
+]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="10" y="25" width="120" height="16" uuid="75694c30-61f1-418a-8a20-2494e428c465"/>
@@ -434,18 +432,18 @@ TITULAR]]></text>
 					<text><![CDATA[(3) PROGRAMA:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="130" y="25" width="170" height="16" uuid="9550fb42-4ff5-4891-9b0c-c51a53841d82"/>
+					<reportElement x="130" y="25" width="250" height="16" uuid="9550fb42-4ff5-4891-9b0c-c51a53841d82"/>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[02 Programas de Accion]]></text>
+					<text><![CDATA[1 Programas Centrales]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="130" y="41" width="170" height="16" uuid="948e2533-c454-4a31-a8b6-b09d405714b7"/>
+					<reportElement x="130" y="41" width="250" height="16" uuid="948e2533-c454-4a31-a8b6-b09d405714b7"/>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[01 Servicio Social de Caridad]]></text>
+					<text><![CDATA[2 Recursos Financieros Transferidos a Consejos de Salud]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="10" y="57" width="120" height="16" uuid="55d73a03-ddd0-407b-b26f-ed8fc8d5a1b4"/>
@@ -543,7 +541,7 @@ TITULAR]]></text>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="6"/>
 					</textElement>
-					<text><![CDATA[Recibo Nro (9)]]></text>
+					<text><![CDATA[Recibo o Factura N° (9)]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="80" y="115" width="80" height="30" uuid="c881eff2-c56f-49a4-b5a4-3ab62b78aa0f"/>
@@ -867,10 +865,7 @@ Gasto (17)]]></text>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_rendir} - $V{sum_importe} 
-
-
-]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_rendir} - $V{sum_importe}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
