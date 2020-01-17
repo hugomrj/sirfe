@@ -3,8 +3,10 @@
 
 
 <properties>
-            
+                
+    <entry key="raiz">/sirfe</entry>    
     <entry key="lineasLista">16</entry>
     <entry key="lineasSub">8</entry>
+    
     
 </properties>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2020-01-17T12:16:22 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AnexoB09" pageWidth="612" pageHeight="920" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="19ed23d4-a4a4-4ca0-89e4-2104b5872f90">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sirfe_database"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -37,21 +38,27 @@
   consejos_salud.cod, 
   consejos_salud.descripcion, 
   tipos_comprobantes.descripcion, 
-  (saldo_anterior + total_depositado) as total_rendir
+  (saldo_anterior + total_depositado) as total_rendir,
+	decretos.agno, decretos.decreto
+  
   
 FROM 
   aplicacion.transferencias_fondos, 
   aplicacion.rendiciones_gastos, 
   aplicacion.consejos_salud, 
-  aplicacion.tipos_comprobantes
+  aplicacion.tipos_comprobantes,
+  aplicacion.decretos
   
 WHERE 
   transferencias_fondos.transferencia = rendiciones_gastos.transferencia AND
   consejos_salud.cod = rendiciones_gastos.consejo AND
   transferencias_fondos.estado_transferencia = 1 and
   tipos_comprobantes.tipo_comprobante = rendiciones_gastos.tipo_comprobante
-  and transferencias_fondos.resolucion_numero like $P{par_resolucion}
+  and transferencias_fondos.resolucion_numero like $P{par_resolucion} 
   and transferencias_fondos.consejo = $P{par_consejo}
+
+	and decretos.agno =  extract(year from  deposito_fecha)
+  
   order by transferencias_fondos.resolucion_numero, transferencias_fondos.consejo]]>
 	</queryString>
 	<field name="transferencia" class="java.lang.Integer">
@@ -142,6 +149,16 @@ WHERE
 		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tipos_comprobantes"/>
 	</field>
+        
+	<field name="decreto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="decreto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="decretos"/>
+	</field>        
+	<field name="agno" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="agno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="decretos"/>
+	</field>        
+        
 	<field name="total_rendir" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="total_rendir"/>
 	</field>
@@ -158,14 +175,6 @@ WHERE
 						<font size="12"/>
 					</textElement>
 					<text><![CDATA[Ministerio de Hacienda]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="0" y="73" width="572" height="16" uuid="b8c8f77a-96cf-49a0-8a6e-bc76081fe34c"/>
-					<textElement textAlignment="Center">
-						<font size="10"/>
-					</textElement>
-					<text><![CDATA[Decreto 1145 / 2020
-]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="89" width="572" height="16" uuid="a78728ce-8f93-419a-8335-313eb3340957"/>
@@ -195,6 +204,13 @@ WHERE
 					</textElement>
 					<text><![CDATA[PRESIDENCIA DE LA REPUBLICA]]></text>
 				</staticText>
+				<textField>
+					<reportElement x="0" y="73" width="572" height="16" uuid="d0a97f52-df92-4ec4-8c79-424129abda5d"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Decreto "  + $F{decreto}  + " / "  +  $F{agno}  ]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -414,8 +430,7 @@ TITULAR]]></text>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{descripcion} + " - Resol. DGDS N° " + $F{resolucion_numero}
-]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{descripcion} + " - Resol. DGDS N° " + $F{resolucion_numero}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="10" y="25" width="120" height="16" uuid="75694c30-61f1-418a-8a20-2494e428c465"/>
@@ -443,7 +458,7 @@ TITULAR]]></text>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[2 Recursos Financieros Transferidos a Consejos de Salud]]></text>
+					<text><![CDATA[2 Programas Centrales del Sistema de Salud]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="10" y="57" width="120" height="16" uuid="55d73a03-ddd0-407b-b26f-ed8fc8d5a1b4"/>
@@ -453,11 +468,11 @@ TITULAR]]></text>
 					<text><![CDATA[(4) SUBPROGRAMA:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="130" y="57" width="170" height="16" uuid="a63e3994-9d4f-4e3c-b4b9-9a5bcbc77f82"/>
+					<reportElement x="130" y="56" width="250" height="16" uuid="a63e3994-9d4f-4e3c-b4b9-9a5bcbc77f82"/>
 					<textElement>
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[07 Fondo de Equidad]]></text>
+					<text><![CDATA[2 Recursos Financieros Transferidos a Consejos de Salud]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="10" y="73" width="120" height="16" uuid="7dc90757-c0f1-479e-bd9c-956cf0e2b594"/>

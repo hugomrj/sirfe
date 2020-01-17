@@ -9,14 +9,17 @@ package test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nebuleuse.ORM.Persistencia;
+import nebuleuse.ORM.xml.Global;
 import nebuleuse.seguridad.Autentificacion;
 import py.com.aplicacion.consejosalud.ConsejoSalud;
 import py.com.aplicacion.consejosalud.ConsejoSaludDAO;
 import py.com.aplicacion.consejosalud.ConsejoSaludSQL;
+import py.com.aplicacion.decreto.Decreto;
 import py.com.aplicacion.departamento.Departamento;
 import py.com.aplicacion.departamento.DepartamentoDAO;
 import py.com.aplicacion.rendicion_gasto.RendicionGasto;
@@ -25,6 +28,8 @@ import py.com.aplicacion.rendicion_verificacion.RendicionVerificacion;
 import py.com.aplicacion.rendicion_verificacion.RendicionVerificacionDAO;
 import py.com.aplicacion.transferencia_fondo.TransferenciaFondo;
 import py.com.aplicacion.transferencia_fondo.TransferenciaFondoDAO;
+import py.com.base.sistema.selector.SelectorRS;
+import py.com.base.sistema.selector.SelectorUI;
 import py.com.base.sistema.usuario.Usuario;
 import py.com.base.sistema.usuario.UsuarioDAO;
 import py.com.base.sistema.usuario.UsuarioExt;
@@ -47,32 +52,25 @@ public class Practica01 {
     
         try {
             
+            Decreto componente = new Decreto();  
+            Gson gsonf = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();                
+            
             
             //Usuario usuario = new Usuario();
             Persistencia persistencia = new Persistencia();
             Gson gson = new Gson();          
             
             
-            Integer page = 1;
-            Integer consejo = 401;
-            Integer usuario = 357;
+            String json = "{\"agno\":2000,\"decreto\":8989}";
             
-               
-            
-                RendicionVerificacionDAO dao = new RendicionVerificacionDAO();      
-                
-                String resolucion = "61/19";
+                Decreto req = gsonf.fromJson(json, Decreto.class);    
                                 
-                List<RendicionVerificacion> lista = dao.list(page, usuario, consejo, resolucion);                
-                            
+System.out.println(  req.getAgno() );
                 
-    String json = gson.toJson( lista );                     
-    
-    System.out.println(json);
+                componente = (Decreto) persistencia.insert(req);
                 
-
             
-                
+            
             
         } catch (Exception ex) {
             System.out.println( ex.getCause() );

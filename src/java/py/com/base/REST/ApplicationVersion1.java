@@ -34,10 +34,11 @@ public class ApplicationVersion1 extends Application {
 
             resources.add(py.com.aplicacion.consejosalud.ConsejoSaludWS.class);
             resources.add(py.com.aplicacion.consejosalud.ConsejoSaludWS_query.class);
+            resources.add(py.com.aplicacion.decreto.DecretoWS.class);
             resources.add(py.com.aplicacion.departamento.DepartamentoWS.class);
             resources.add(py.com.aplicacion.departamento.DepartamentoWS_query.class);
             resources.add(py.com.aplicacion.objeto_gasto.ObjetoGastoWS.class);
-            resources.add(py.com.aplicacion.objeto_gasto.ObjetoGastoWS_query.class);
+        resources.add(py.com.aplicacion.objeto_gasto.ObjetoGastoWS_query.class);
         resources.add(py.com.aplicacion.rendicion_gasto.RendicionGastoWS_session.class);
         resources.add(py.com.aplicacion.rendicion_gasto.RendicionGastoWS_verificador.class);
         resources.add(py.com.aplicacion.rendicion_verificacion.RendicionVerificacionWS.class);

@@ -149,8 +149,8 @@ public class Persistencia {
 
         
         strSQL = strInsert + strColums + strValues + strRETURNING;
-
-      
+        
+     
         Integer intID = 0;  
         try
         {            

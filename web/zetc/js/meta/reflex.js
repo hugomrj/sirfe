@@ -208,8 +208,8 @@ var reflex =
 
 
 
-
     form_id : function ( obj, id ){    
+
 
         reflex.ini( obj );        
         reflex.form( obj );
@@ -228,8 +228,7 @@ var reflex =
                 
         if(typeof obj.form_ini === 'function') {
           obj.form_ini();
-        }                   
-                
+        }                                   
         
         //objetoclase.button_reg(obj );                
         reflex.acciones.button_reg(obj);
@@ -239,7 +238,6 @@ var reflex =
         if (expre ===  'function'){   
             obj.tabuladores( obj );
         }  
-        
         
         
         
@@ -454,14 +452,11 @@ var reflex =
                         ajax.metodo = "post";
                         ajax.url = html.url.absolute()+"/api/"+ obj.recurso;               
 
-                        form.name = "form_"+obj.tipo;
-                        
 
+                        form.name = "form_"+obj.tipo;
 
                         var data = ajax.private.json( form.datos.getjson() );  
                         
-
-
 
                         switch (ajax.state) {
                             
