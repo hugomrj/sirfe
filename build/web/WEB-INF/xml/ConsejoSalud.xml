@@ -7,9 +7,10 @@
         name="aplicacion.consejos_salud">      
         
             <id name="cod"/>            
-                       
-            <column name="id"/>
-            <column name="cod"/>
+            
+            <column name="cod"/>           
+            <column name="id" insertnot="insertnot" />
+            
             <column name="descripcion"/>
             <column name="dpto" foreign = "Departamento" />
             <column name="rol" foreign = "Rol" />
