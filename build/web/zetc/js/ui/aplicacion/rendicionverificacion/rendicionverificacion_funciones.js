@@ -84,6 +84,7 @@ function verificacion_form_html(dom){
         verificacion_consejo_cod.onblur  = function() {             
             
                 verificacion_consejo_cod.value  = fmtNum(verificacion_consejo_cod.value);
+                verificacion_consejo_cod.value  = NumQP(verificacion_consejo_cod.value);
 
                 var para = verificacion_consejo_cod.value ;        
                 ajax.url = html.url.absolute()+'/api/consejosalud/'+para+'/verificador' ;
