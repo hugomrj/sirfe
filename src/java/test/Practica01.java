@@ -9,6 +9,7 @@ package test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.logging.Level;
@@ -36,6 +37,7 @@ import py.com.base.sistema.usuario.UsuarioExt;
 import py.com.base.sistema.usuario.UsuarioSQL;
 import py.com.base.sistema.usuario_rol.UsuarioRol;
 import py.com.base.sistema.usuario_rol.UsuarioRolDAO;
+import py.com.consulta.ConsultaJSON;
 
 
 
@@ -56,19 +58,21 @@ public class Practica01 {
             Gson gsonf = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();                
             
             
-            //Usuario usuario = new Usuario();
-            Persistencia persistencia = new Persistencia();
-            Gson gson = new Gson();          
+            
+            String json = "";
+
+                    JsonArray jsonarray = new ConsultaJSON().consulta004( 1,
+                            "20100101", "20201010", 
+                            1, 99,
+                            1, 999,
+                            1, 999
+                            );
+                    json = jsonarray.toString();               
             
             
-            String json = "{\"agno\":2000,\"decreto\":8989}";
-            
-                Decreto req = gsonf.fromJson(json, Decreto.class);    
-                                
-System.out.println(  req.getAgno() );
+System.out.println(  json );
                 
-                componente = (Decreto) persistencia.insert(req);
-                
+
             
             
             

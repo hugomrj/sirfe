@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -206,15 +208,51 @@ public class ConsultaJSON  {
                     );                
                        
             
-                    
+            Integer i = 0;
+            Long gen_depo = 0L;
+            Long linea_depo = 0L;
+            String strPorce = "";
+
+            
+            
             while(resulset.next()) 
             {  
                 map = registoMap.convertirHashMap(resulset);     
+                
+                gen_depo = Long.parseLong(map.get("general_depositado"));                
+                linea_depo = Long.parseLong(map.get("total_depositado"));                
+                
+//porcen =  Float.parseFloat(linea_depo / gen_depo);
+
+            double porcentaje = (double) linea_depo / gen_depo;                
+            BigDecimal bd = new BigDecimal(porcentaje);            
+            bd = bd.setScale(2, RoundingMode.HALF_UP);            
+            map.put("cal_porcen", String.valueOf( bd )  );
+
+            if (i  == 0 ){
+                strPorce = String.valueOf( bd )  ;
+            }            
+            else
+            {                            
+                double doble = Double.parseDouble(strPorce);
+                double doblebd = Double.parseDouble(String.valueOf( bd ) );
+                
+                BigDecimal bd2 = new BigDecimal(doble + doblebd);     
+                bd2 = bd2.setScale(2, RoundingMode.HALF_UP);            
+                
+                strPorce  =  String.valueOf(  bd2 );
+            }
+            
+            map.put("cal_acum", strPorce );            
+            
                 JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
                 jsonarray.add( element );
+                
+                i++;
             }                    
             this.total_registros = rs.total_registros  ;   
             
+//System.out.println(i);
             
         }         
         catch (Exception ex) {                        

@@ -29,6 +29,7 @@ public class RendicionGasto {
     private ConsejoSalud consejo;
     private String ruc_factura;
     private Date timbrado_venciomiento;
+    private Date timbrado_iniciovigencia;
 
 
 
@@ -134,6 +135,14 @@ public class RendicionGasto {
 
     public void setTimbrado_venciomiento(Date timbrado_venciomiento) {
         this.timbrado_venciomiento = timbrado_venciomiento;
+    }
+
+    public Date getTimbrado_iniciovigencia() {
+        return timbrado_iniciovigencia;
+    }
+
+    public void setTimbrado_iniciovigencia(Date timbrado_iniciovigencia) {
+        this.timbrado_iniciovigencia = timbrado_iniciovigencia;
     }
     
     

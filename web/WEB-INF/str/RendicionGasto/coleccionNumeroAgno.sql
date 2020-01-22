@@ -11,7 +11,9 @@ SELECT
   rendiciones_gastos.importe,  
   rendiciones_gastos.observacion, 
 rendiciones_gastos.ruc_factura, 
-rendiciones_gastos.timbrado_venciomiento 
+rendiciones_gastos.timbrado_venciomiento ,
+rendiciones_gastos.timbrado_iniciovigencia    
+
   
 FROM  
   aplicacion.rendiciones_gastos,  

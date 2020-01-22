@@ -405,7 +405,7 @@ function consulta_datos (){
                 objeto_hasta.value;
                 
             ajax.metodo = "GET";   
-            var json = ajax.private.json();           
+            var json = ajax.private.json();         
 
             tabla.json = json ;
             tabla.html = "";               
@@ -413,11 +413,12 @@ function consulta_datos (){
 
             tabla.id =  "consulta-tabla";
             tabla.linea =  "objeto";
-            tabla.campos = [ 'objeto',  'objeto_descrip',  'dpto', 'dpto_descrip',  'total_depositado'];                
+            tabla.campos = [ 'objeto',  'objeto_descrip',  'dpto', 'dpto_descrip',  'total_depositado', 
+                'cal_porcen', 'cal_acum'];                
             tabla.tbody_id = "consulta-tb";    
 
             var obj = new Object();
-            obj.tablaformat =  ['C', 'C', 'C', 'C',  'N'];   
+            obj.tablaformat =  ['C', 'C', 'C', 'C',  'N', 'R', 'R'];   
 
             tabla.gene();
 
@@ -437,7 +438,31 @@ function consulta_datos (){
             
             general_rendicion.style = "text-align: right";
             
+
+    
+            // recoorrer json para sumar porcentaje
             
+            var suma_porcentaje = 0.00;             
+            for (let i in ojson) {    
+                //console.log(parseFloat(ojson[i]['cal_porcen']));
+
+                 suma_porcentaje = suma_porcentaje + parseFloat(ojson[i]['cal_porcen']);
+                 //console.log( suma_porcentaje );
+
+              /*  
+              for (let j in json[i]) {
+                if (json[i][j].hasOwnProperty('check')) {
+                  //json[i][j].check = true;
+                }
+              }
+              */
+
+            }
+            var total_porcentaje = document.getElementById("total_porcentaje");   
+            total_porcentaje.innerHTML  = suma_porcentaje.toFixed(2);   
+            total_porcentaje.style = "text-align: right";
+
+
 
             
 

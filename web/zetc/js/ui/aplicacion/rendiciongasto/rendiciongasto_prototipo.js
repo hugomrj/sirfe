@@ -262,13 +262,45 @@ RendicionGasto.prototype.form_validar = function() {
     
     
     
-    /*
+    
+    
+    var rendiciongasto_timbrado_iniciovigencia = document.getElementById('rendiciongasto_timbrado_iniciovigencia');
+    if (rendiciongasto_timbrado_iniciovigencia.value == ""){
+        /*
+        msg.error.mostrar("Fecha de inicio de vigencia timbrado no puede ser vacia");                    
+        rendiciongasto_timbrado_iniciovigencia.focus();
+        rendiciongasto_timbrado_iniciovigencia.select();                                       
+        return false;        
+        */
+    }
+    else
+    {
+        var hoy= new Date();
+        var fechaFormulario = new Date(rendiciongasto_timbrado_iniciovigencia.value);
+                
+        if (hoy <= fechaFormulario) {        
+            
+            msg.error.mostrar("Fecha de inicio de vigencia timbrado menor a la fecha actual");                    
+            rendiciongasto_timbrado_iniciovigencia.focus();
+            rendiciongasto_timbrado_iniciovigencia.select();                                       
+            return false;        
+            
+        }    
+        
+    }
+    
+            
+    
+    
+    
     var rendiciongasto_timbrado_venciomiento = document.getElementById('rendiciongasto_timbrado_venciomiento');
     if (rendiciongasto_timbrado_venciomiento.value == ""){
+        /*
         msg.error.mostrar("Fecha de timbrado no puede ser vacia");                    
         rendiciongasto_timbrado_venciomiento.focus();
         rendiciongasto_timbrado_venciomiento.select();                                       
         return false;        
+        */
     }
     else
     {
@@ -277,7 +309,7 @@ RendicionGasto.prototype.form_validar = function() {
                 
         if (hoy >= fechaFormulario) {        
             
-            msg.error.mostrar("Fecha de timbrado menor a la fecha actual");                    
+            msg.error.mostrar("Fecha de vencimiento de timbrado menor a la fecha actual");                    
             rendiciongasto_timbrado_venciomiento.focus();
             rendiciongasto_timbrado_venciomiento.select();                                       
             return false;        
@@ -285,10 +317,8 @@ RendicionGasto.prototype.form_validar = function() {
         }    
         
     }
-    */
-        
     
-    
+      
     
     
     return true;

@@ -313,6 +313,7 @@ function edicion_verificacion ( id ){
             
             document.getElementById('rendiciongasto_ruc_factura').value =  oJson['rendicion']['ruc_factura'];
             document.getElementById('rendiciongasto_timbrado_venciomiento').value =    jsonToDate(  oJson['rendicion']['timbrado_venciomiento'] );  
+            document.getElementById('rendiciongasto_timbrado_iniciovigencia').value =    jsonToDate(  oJson['rendicion']['timbrado_iniciovigencia'] );  
             
 
 
