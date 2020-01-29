@@ -29,9 +29,6 @@ public class ConsultaJSON  {
     public ConsultaJSON ( ) throws IOException  {
     }
       
-        
-    
-
 
     public JsonArray  consulta001 (
             
