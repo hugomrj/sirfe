@@ -275,6 +275,7 @@ RendicionGasto.prototype.form_validar = function() {
     }
     else
     {
+        /*
         var hoy= new Date();
         var fechaFormulario = new Date(rendiciongasto_timbrado_iniciovigencia.value);
                 
@@ -286,7 +287,7 @@ RendicionGasto.prototype.form_validar = function() {
             return false;        
             
         }    
-        
+        */
     }
     
             
@@ -304,6 +305,8 @@ RendicionGasto.prototype.form_validar = function() {
     }
     else
     {
+        
+        /*
         var hoy= new Date();
         var fechaFormulario = new Date(rendiciongasto_timbrado_venciomiento.value);
                 
@@ -314,7 +317,8 @@ RendicionGasto.prototype.form_validar = function() {
             rendiciongasto_timbrado_venciomiento.select();                                       
             return false;        
             
-        }    
+        } 
+        */
         
     }
     

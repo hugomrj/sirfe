@@ -54,15 +54,17 @@ public class ConsultaWS {
     
     
     @GET        
-    @Path("/consulta001/{fechadesde}/{fechahasta}/{dptodesde}/{dptohasta}/{consejodesde}/{consejohasta}")    
+    @Path("/consulta001/{fechadesde}/{fechahasta}/{dptodesde}/{dptohasta}/{consejodesde}/{consejohasta}/{tipo}")    
     public Response consulta001 ( 
 
+            
             @PathParam ("fechadesde") String fechadesde,
             @PathParam ("fechahasta") String fechahasta,
             @PathParam ("dptodesde") Integer dptodesde,
             @PathParam ("dptohasta") Integer dptohasta,            
             @PathParam ("consejodesde") Integer consejodesde,
             @PathParam ("consejohasta") Integer consejohasta,            
+            @PathParam ("tipo") Integer tipo,
             
             
             @HeaderParam("token") String strToken
@@ -81,9 +83,9 @@ public class ConsultaWS {
                 if (!( fechadesde.trim().equals("0") || fechahasta.trim().equals("0")) )
                 {
                     
-                    JsonArray jsonarray = new ConsultaJSON().consulta001(fechadesde, fechahasta, 
+                    JsonArray jsonarray = new ConsultaJSON().consulta001( fechadesde, fechahasta, 
                             dptodesde, dptohasta,
-                            consejodesde, consejohasta);
+                            consejodesde, consejohasta,tipo);
                     json = jsonarray.toString();                
                 }
                 
@@ -116,9 +118,12 @@ public class ConsultaWS {
 
     
     
+
+    
+    
     @GET        
     @Path("/consulta002/{estadores}/{fechadesde}/{fechahasta}/{dptodesde}/{dptohasta}"
-            + "/{consejodesde}/{consejohasta}/{objdesde}/{objhasta}"   )    
+            + "/{consejodesde}/{consejohasta}/{objdesde}/{objhasta}/{tipo}"   )    
     public Response consulta002 (
             
             @PathParam ("estadores") Integer estadores,
@@ -130,6 +135,8 @@ public class ConsultaWS {
             @PathParam ("consejohasta") Integer consejohasta,            
             @PathParam ("objdesde") Integer objdesde,
             @PathParam ("objhasta") Integer objhasta,
+            @PathParam ("tipo") Integer tipo,
+            
             @HeaderParam("token") String strToken
             ) {
         
@@ -150,7 +157,8 @@ public class ConsultaWS {
                             fechadesde, fechahasta, 
                             dptodesde, dptohasta,
                             consejodesde, consejohasta,
-                            objdesde, objhasta
+                            objdesde, objhasta,
+                            tipo
                             );
                     json = jsonarray.toString();                
                 }
@@ -188,7 +196,7 @@ public class ConsultaWS {
     
     @GET        
     @Path("/consulta003/{fechadesde}/{fechahasta}/{dptodesde}/{dptohasta}"
-            + "/{consejodesde}/{consejohasta}"   )    
+            + "/{consejodesde}/{consejohasta}/{tipo}"   )    
     public Response consulta003 (
             
             @PathParam ("estadores") Integer estadores,
@@ -200,6 +208,8 @@ public class ConsultaWS {
             @PathParam ("consejohasta") Integer consejohasta,            
             @PathParam ("objdesde") Integer objdesde,
             @PathParam ("objhasta") Integer objhasta,
+            @PathParam ("tipo") Integer tipo,
+            
             @HeaderParam("token") String strToken
             ) {
         
@@ -219,7 +229,8 @@ public class ConsultaWS {
                     JsonArray jsonarray = new ConsultaJSON().consulta003( 
                             fechadesde, fechahasta, 
                             dptodesde, dptohasta,
-                            consejodesde, consejohasta                    
+                            consejodesde, consejohasta,
+                            tipo
                             );
                     json = jsonarray.toString();                
                 }
@@ -258,7 +269,7 @@ public class ConsultaWS {
     
     @GET        
     @Path("/consulta004/{estadores}/{fechadesde}/{fechahasta}/{dptodesde}/{dptohasta}"
-            + "/{consejodesde}/{consejohasta}/{objdesde}/{objhasta}"   )    
+            + "/{consejodesde}/{consejohasta}/{objdesde}/{objhasta}/{tipo}"   )    
     public Response consulta004 (
             
             @PathParam ("estadores") Integer estadores,
@@ -270,6 +281,8 @@ public class ConsultaWS {
             @PathParam ("consejohasta") Integer consejohasta,            
             @PathParam ("objdesde") Integer objdesde,
             @PathParam ("objhasta") Integer objhasta,
+            @PathParam ("tipo") Integer tipo,
+            
             @HeaderParam("token") String strToken
             ) {
         
@@ -290,7 +303,8 @@ public class ConsultaWS {
                             fechadesde, fechahasta, 
                             dptodesde, dptohasta,
                             consejodesde, consejohasta,
-                            objdesde, objhasta
+                            objdesde, objhasta,
+                            tipo                            
                             );
                     json = jsonarray.toString();                
                 }

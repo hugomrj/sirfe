@@ -61,11 +61,13 @@ public class Practica01 {
             
             String json = "";
 
-                    JsonArray jsonarray = new ConsultaJSON().consulta004( 1,
+                    JsonArray jsonarray = new ConsultaJSON().consulta002( 
+                            1,
                             "20100101", "20201010", 
                             1, 99,
                             1, 999,
-                            1, 999
+                            1, 999,
+                            0
                             );
                     json = jsonarray.toString();               
             

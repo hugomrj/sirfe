@@ -18,6 +18,40 @@ function consulta_form_inicio(){
         ajax.metodo = "GET";            
         document.getElementById( "formdet" ).innerHTML =  ajax.public.html();  
         
+        
+        
+    
+        var tipo_transferencia = document.getElementById("tipo_transferencia");
+        var idedovalue = tipo_transferencia.value;
+   
+      
+        ajax.url = html.url.absolute()+'/api/tipostransferencias/all' ;
+        ajax.metodo = "GET";   
+        var datajson = ajax.private.json();               
+    
+        var oJson = JSON.parse( datajson ) ;
+        
+                var opt = document.createElement('option');            
+                opt.value = 0;
+                opt.innerHTML = 'Todos';                        
+                tipo_transferencia.appendChild(opt);                     
+        
+        for ( x=0; x < oJson.length; x++ ) {
+            
+            var jsonvalue = (oJson[x]['tipo_transferencia'] );            
+            
+            if (idedovalue != jsonvalue )
+            {  
+                var opt = document.createElement('option');            
+                opt.value = jsonvalue;
+                opt.innerHTML = oJson[x]['descripcion'];                        
+                tipo_transferencia.appendChild(opt);                     
+            }
+            
+        }
+        
+                
+        
         consulta_interaccion();        
         consulta_datos ();        
     
@@ -65,6 +99,15 @@ function consulta_cargar_combo (){
 
 
 function consulta_interaccion (){        
+    
+    
+
+        var tipo_transferencia = document.getElementById("tipo_transferencia");
+        tipo_transferencia.onchange  = function(){                        
+            consulta_datos ();            
+        }                         
+    
+    
     
     
         var estado_resolucion = document.getElementById("estado_resolucion");
@@ -389,6 +432,7 @@ function consulta_datos (){
         var objeto_desde = document.getElementById('objeto_desde');    
         var objeto_hasta = document.getElementById('objeto_hasta');    
         
+        var tipo_transferencia = document.getElementById("tipo_transferencia");
     
     
     
@@ -402,7 +446,8 @@ function consulta_datos (){
                 consejo_desde.value+'/'+
                 consejo_hasta.value+'/'+                
                 objeto_desde.value+'/'+
-                objeto_hasta.value;
+                objeto_hasta.value+'/'+
+                tipo_transferencia.value;
                 
             ajax.metodo = "GET";   
             var json = ajax.private.json();         

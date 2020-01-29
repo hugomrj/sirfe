@@ -33,18 +33,21 @@ public class ConsultaRS  {
 
 
 
-    public ResultSet  consulta001 (
+    public ResultSet  consulta001 (            
             String fecha_desde, String fecha_hasta,
             Integer dpto_desde, Integer dpto_hasta,
-            Integer consejo_desde, Integer consejo_hasta
+            Integer consejo_desde, Integer consejo_hasta,
+            Integer tipo
+            
             ) 
             throws Exception {
 
         
             statement = conexion.getConexion().createStatement();                  
-            String sql = new ConsultaSQL().consulta001(  fecha_desde, fecha_hasta,
+            String sql = new ConsultaSQL().consulta001( fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
-                    consejo_desde, consejo_hasta
+                    consejo_desde, consejo_hasta,
+                    tipo
                     );
             
             resultset = statement.executeQuery(sql);     
@@ -62,7 +65,9 @@ public class ConsultaRS  {
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
             Integer consejo_desde, Integer consejo_hasta,
-            Integer obj_desde, Integer obj_hasta
+            Integer obj_desde, Integer obj_hasta,
+            Integer tipo
+            
             ) 
             throws Exception {
 
@@ -73,7 +78,8 @@ public class ConsultaRS  {
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta,
-                    obj_desde, obj_hasta                   
+                    obj_desde, obj_hasta,
+                    tipo
             );
             
             resultset = statement.executeQuery(sql);     
@@ -89,7 +95,8 @@ public class ConsultaRS  {
     public ResultSet  consulta003 (            
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
-            Integer consejo_desde, Integer consejo_hasta
+            Integer consejo_desde, Integer consejo_hasta,
+            Integer tipo
             ) 
             throws Exception {
 
@@ -98,7 +105,8 @@ public class ConsultaRS  {
             String sql = new ConsultaSQL().consulta003 (                    
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
-                    consejo_desde, consejo_hasta    
+                    consejo_desde, consejo_hasta ,
+                    tipo
             );
             
             resultset = statement.executeQuery(sql);     
@@ -117,7 +125,8 @@ public class ConsultaRS  {
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
             Integer consejo_desde, Integer consejo_hasta,
-            Integer obj_desde, Integer obj_hasta
+            Integer obj_desde, Integer obj_hasta,
+            Integer tipo
             ) 
             throws Exception {
 
@@ -128,7 +137,8 @@ public class ConsultaRS  {
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta,
-                    obj_desde, obj_hasta                   
+                    obj_desde, obj_hasta,
+                    tipo
             );
             
             resultset = statement.executeQuery(sql);     

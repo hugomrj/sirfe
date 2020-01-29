@@ -34,9 +34,12 @@ public class ConsultaJSON  {
 
 
     public JsonArray  consulta001 (
+            
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
-            Integer consejo_desde, Integer consejo_hasta
+            Integer consejo_desde, Integer consejo_hasta,
+            Integer tipo
+            
             ) {
         
         Map<String, String> map = null;        
@@ -53,7 +56,8 @@ public class ConsultaJSON  {
             ConsultaRS rs = new ConsultaRS();            
             ResultSet resulset = rs.consulta001(fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
-                    consejo_desde, consejo_hasta
+                    consejo_desde, consejo_hasta, 
+                    tipo
                     );                
                        
             
@@ -86,7 +90,8 @@ public class ConsultaJSON  {
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
             Integer consejo_desde, Integer consejo_hasta,
-            Integer obj_desde, Integer obj_hasta
+            Integer obj_desde, Integer obj_hasta,
+            Integer tipo
             ) {
         
         Map<String, String> map = null;        
@@ -104,14 +109,53 @@ public class ConsultaJSON  {
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta,
-                    obj_desde, obj_hasta
+                    obj_desde, obj_hasta,
+                    tipo
                     );                
                        
+            
+            Integer i = 0;
+            Long gen_depo = 0L;
+            Long linea_depo = 0L;
+            String strPorce = "";            
             
                     
             while(resulset.next()) 
             {  
                 map = registoMap.convertirHashMap(resulset);     
+                
+//System.out.println(resulset);
+                                
+            //porcen =  Float.parseFloat(linea_depo / gen_depo);
+            
+                        gen_depo = Long.parseLong(map.get("general_depositado"));                
+                        linea_depo = Long.parseLong(map.get("total_depositado"));     
+
+            
+                        double porcentaje = (double) linea_depo / gen_depo;                
+                        BigDecimal bd = new BigDecimal((porcentaje) * 100);            
+                        bd = bd.setScale(2, RoundingMode.HALF_UP);            
+                        map.put("cal_porcen", String.valueOf( bd )  );
+
+                        if (i  == 0 ){
+                            strPorce = String.valueOf( bd )  ;
+                        }            
+                        else
+                        {                            
+                            double doble = Double.parseDouble(strPorce);
+                            double doblebd = Double.parseDouble(String.valueOf( bd ) );
+
+                            BigDecimal bd2 = new BigDecimal((doble + doblebd) );     
+                            bd2 = bd2.setScale(2, RoundingMode.HALF_UP);            
+                            //bd2 = bd2 * 100;
+                            strPorce  =  String.valueOf(  bd2 );
+                        }
+
+                        map.put("cal_acum", strPorce );            
+
+                        i++;
+            
+                
                 JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
                 jsonarray.add( element );
             }                    
@@ -136,7 +180,8 @@ public class ConsultaJSON  {
     public JsonArray  consulta003 (            
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
-            Integer consejo_desde, Integer consejo_hasta
+            Integer consejo_desde, Integer consejo_hasta,
+            Integer tipo
             ) {
         
         Map<String, String> map = null;        
@@ -152,7 +197,8 @@ public class ConsultaJSON  {
             ResultSet resulset = rs.consulta003 (
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
-                    consejo_desde, consejo_hasta
+                    consejo_desde, consejo_hasta,
+                    tipo
                     );                
                        
             
@@ -186,7 +232,8 @@ public class ConsultaJSON  {
             String fecha_desde, String fecha_hasta, 
             Integer dpto_desde, Integer dpto_hasta,
             Integer consejo_desde, Integer consejo_hasta,
-            Integer obj_desde, Integer obj_hasta
+            Integer obj_desde, Integer obj_hasta,
+            Integer tipo
             ) {
         
         Map<String, String> map = null;        
@@ -204,7 +251,8 @@ public class ConsultaJSON  {
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta,
-                    obj_desde, obj_hasta
+                    obj_desde, obj_hasta,
+                    tipo
                     );                
                        
             
@@ -219,36 +267,36 @@ public class ConsultaJSON  {
             {  
                 map = registoMap.convertirHashMap(resulset);     
                 
-                gen_depo = Long.parseLong(map.get("general_depositado"));                
-                linea_depo = Long.parseLong(map.get("total_depositado"));                
+                        gen_depo = Long.parseLong(map.get("general_depositado"));                
+                        linea_depo = Long.parseLong(map.get("total_depositado"));                
                 
-//porcen =  Float.parseFloat(linea_depo / gen_depo);
+                        //porcen =  Float.parseFloat(linea_depo / gen_depo);
 
-            double porcentaje = (double) linea_depo / gen_depo;                
-            BigDecimal bd = new BigDecimal(porcentaje);            
-            bd = bd.setScale(2, RoundingMode.HALF_UP);            
-            map.put("cal_porcen", String.valueOf( bd )  );
+                        double porcentaje = (double) linea_depo / gen_depo;                
+                        BigDecimal bd = new BigDecimal((porcentaje) * 100);            
+                        bd = bd.setScale(2, RoundingMode.HALF_UP);            
+                        map.put("cal_porcen", String.valueOf( bd )  );
 
-            if (i  == 0 ){
-                strPorce = String.valueOf( bd )  ;
-            }            
-            else
-            {                            
-                double doble = Double.parseDouble(strPorce);
-                double doblebd = Double.parseDouble(String.valueOf( bd ) );
-                
-                BigDecimal bd2 = new BigDecimal(doble + doblebd);     
-                bd2 = bd2.setScale(2, RoundingMode.HALF_UP);            
-                
-                strPorce  =  String.valueOf(  bd2 );
-            }
-            
-            map.put("cal_acum", strPorce );            
-            
-                JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
-                jsonarray.add( element );
-                
-                i++;
+                        if (i  == 0 ){
+                            strPorce = String.valueOf( bd )  ;
+                        }            
+                        else
+                        {                            
+                            double doble = Double.parseDouble(strPorce);
+                            double doblebd = Double.parseDouble(String.valueOf( bd ) );
+
+                            BigDecimal bd2 = new BigDecimal((doble + doblebd) );     
+                            bd2 = bd2.setScale(2, RoundingMode.HALF_UP);            
+                            //bd2 = bd2 * 100;
+                            strPorce  =  String.valueOf(  bd2 );
+                        }
+
+                        map.put("cal_acum", strPorce );            
+
+                            JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
+                            jsonarray.add( element );
+
+                            i++;
             }                    
             this.total_registros = rs.total_registros  ;   
             
