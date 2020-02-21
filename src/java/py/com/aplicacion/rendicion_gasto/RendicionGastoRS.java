@@ -132,9 +132,24 @@ public class RendicionGastoRS  {
     
         
         
-          
     
     
+    public ResultSet  isExist (String par_resolucion, Integer par_consejo)  
+            
+            throws Exception {
+
+            statement = conexion.getConexion().createStatement();      
+            
+            String sql = new RendicionGastoSQL().isExist(par_resolucion, par_consejo);
+            
+            resultset = statement.executeQuery(sql);     
+            conexion.desconectar();                
+            return resultset;                 
+            
+    }
+
+    
+            
     
     
     

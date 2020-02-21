@@ -72,7 +72,20 @@ public class RendicionGastoSQL {
         return sql ;             
     }        
         
-       
+
+    
+    public String isExist (String par_resolucion, Integer par_consejo)  
+            throws Exception {
+    
+        String sql = "";                                 
+        
+        ReaderT reader = new ReaderT("RendicionGasto");
+        reader.fileExt = "isExist.sql";
+        sql = reader.get( par_resolucion, par_consejo );          
+    
+        return sql ;             
+    }        
+            
     
     
     

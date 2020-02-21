@@ -235,7 +235,46 @@ public class RendicionGastoDAO  {
 
       }
     
-            
+    
+    
+    
+    public boolean isExist (String par_resolucion, Integer par_consejo) throws IOException, SQLException, Exception{      
+
+        boolean ret = false;
+        
+        RendicionGastoRS rs = new RendicionGastoRS();  
+        
+        ResultSet resultset = rs.isExist(par_resolucion, par_consejo);
+        
+        if (resultset.next()){
+            ret = true;
+        }
+        
+        return ret;          
+
+      }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

@@ -143,11 +143,30 @@ function reporte_form_inicio(dom){
 
                 
                 
-                        
+                    ajax.url = html.url.absolute()+"/AnexoB09/Reporte/existe"
+                        +"?resolucion="+transferencia_resolucion_numero.value
+                        +"&consejo="+document.getElementById('globlal_consejo').value;                
+                
+                    var ret = ajax.public.json();
+                    
+                
+                console.log(ret)
+                
+                if (ret.toString().trim() == 'false' ){                    
+                    msg.error.mostrar("No existe datos para el reporte");
+                } 
+                else
+                {
+                    
                     ajax.url = html.url.absolute()+"/AnexoB09/Reporte/rendicion.pdf"
                         +"?resolucion="+transferencia_resolucion_numero.value
                         +"&consejo="+document.getElementById('globlal_consejo').value;
-                    ajax.private.jasper();                         
+                    ajax.private.jasper();     
+                    
+                }
+                    
+                    
+                    
             },
             false
         );    
