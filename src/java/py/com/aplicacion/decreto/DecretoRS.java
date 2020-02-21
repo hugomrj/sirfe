@@ -44,7 +44,7 @@ public class DecretoRS  {
             statement = conexion.getConexion().createStatement();      
             
    
-            String sql =    "  SELECT agno, decreto\n" +
+            String sql =    "  SELECT agno, decreto, programa, subprograma \n" +
                                "  FROM aplicacion.decretos\n" +
                                "  order by agno "  ;            
 

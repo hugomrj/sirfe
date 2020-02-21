@@ -7,9 +7,9 @@
     
     <entry key="database">sirfe_database</entry>    
     
-    <entry key="user"></entry>
+    <entry key="user">hugo</entry>
     
-    <entry key="password"></entry>  
+    <entry key="password">12345</entry>  
     
     <entry key="puerto">5432</entry>    
 

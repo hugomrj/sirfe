@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2020-01-17T12:16:22 -->
+<!-- 2020-02-21T09:47:20 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AnexoB09" pageWidth="612" pageHeight="920" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="19ed23d4-a4a4-4ca0-89e4-2104b5872f90">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sirfe_database"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -39,7 +39,7 @@
   consejos_salud.descripcion, 
   tipos_comprobantes.descripcion, 
   (saldo_anterior + total_depositado) as total_rendir,
-	decretos.agno, decretos.decreto
+	decretos.agno, decretos.decreto,  programa, subprograma
   
   
 FROM 
@@ -61,107 +61,33 @@ WHERE
   
   order by transferencias_fondos.resolucion_numero, transferencias_fondos.consejo]]>
 	</queryString>
-	<field name="transferencia" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="transferencia"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="resolucion_numero" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="resolucion_numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="saldo_anterior" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="saldo_anterior"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="origen_ingreso" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="origen_ingreso"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="recibo_numero" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="recibo_numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="comprobante_numero" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="comprobante_numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="deposito_fecha" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.label" value="deposito_fecha"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="total_depositado" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="total_depositado"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="consejo" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="consejo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="total_rendicion" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="total_rendicion"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="transferencias_fondos"/>
-	</field>
-	<field name="rendicion" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="rendicion"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="COLUMN_12" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="resolucion_numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="tipo_comprobante" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="tipo_comprobante"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="rendicion_comprobante_numero" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="rendicion_comprobante_numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="objeto" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="objeto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="concepto" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="concepto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="rendicion_fecha" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.label" value="rendicion_fecha"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="importe" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="importe"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="rendicion_observacion" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="rendicion_observacion"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="rendiciones_gastos"/>
-	</field>
-	<field name="cod" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="cod"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="consejos_salud"/>
-	</field>
-	<field name="descripcion" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="consejos_salud"/>
-	</field>
-	<field name="COLUMN_22" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="tipos_comprobantes"/>
-	</field>
-        
-	<field name="decreto" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="decreto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="decretos"/>
-	</field>        
-	<field name="agno" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="agno"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="decretos"/>
-	</field>        
-        
-	<field name="total_rendir" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="total_rendir"/>
-	</field>
+	<field name="transferencia" class="java.lang.Integer"/>
+	<field name="resolucion_numero" class="java.lang.String"/>
+	<field name="saldo_anterior" class="java.lang.Long"/>
+	<field name="origen_ingreso" class="java.lang.Integer"/>
+	<field name="recibo_numero" class="java.lang.Long"/>
+	<field name="comprobante_numero" class="java.lang.Long"/>
+	<field name="deposito_fecha" class="java.sql.Date"/>
+	<field name="total_depositado" class="java.lang.Long"/>
+	<field name="consejo" class="java.lang.Integer"/>
+	<field name="total_rendicion" class="java.lang.Long"/>
+	<field name="rendicion" class="java.lang.Integer"/>
+	<field name="COLUMN_12" class="java.lang.String"/>
+	<field name="tipo_comprobante" class="java.lang.Integer"/>
+	<field name="rendicion_comprobante_numero" class="java.lang.String"/>
+	<field name="objeto" class="java.lang.Integer"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="rendicion_fecha" class="java.sql.Date"/>
+	<field name="importe" class="java.lang.Long"/>
+	<field name="rendicion_observacion" class="java.lang.String"/>
+	<field name="cod" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="COLUMN_22" class="java.lang.String"/>
+	<field name="total_rendir" class="java.lang.Long"/>
+	<field name="agno" class="java.lang.Integer"/>
+	<field name="decreto" class="java.lang.Integer"/>
+	<field name="programa" class="java.lang.String"/>
+	<field name="subprograma" class="java.lang.String"/>
 	<variable name="REPORT_PAGE" class="java.lang.Integer" incrementType="Page"/>
 	<variable name="sum_importe" class="java.lang.Long" resetType="Group" resetGroup="Group_consejo" calculation="Sum">
 		<variableExpression><![CDATA[$F{importe}]]></variableExpression>
@@ -209,7 +135,7 @@ WHERE
 					<textElement textAlignment="Center">
 						<font size="10"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Decreto "  + $F{decreto}  + " / "  +  $F{agno}  ]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Decreto "  + $F{decreto}  + " / "  +  $F{agno}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -454,25 +380,11 @@ TITULAR]]></text>
 					<text><![CDATA[1 Programas Centrales]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="130" y="41" width="250" height="16" uuid="948e2533-c454-4a31-a8b6-b09d405714b7"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<text><![CDATA[2 Programas Centrales del Sistema de Salud]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="10" y="57" width="120" height="16" uuid="55d73a03-ddd0-407b-b26f-ed8fc8d5a1b4"/>
 					<textElement>
 						<font size="8"/>
 					</textElement>
 					<text><![CDATA[(4) SUBPROGRAMA:]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="130" y="56" width="250" height="16" uuid="a63e3994-9d4f-4e3c-b4b9-9a5bcbc77f82"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<text><![CDATA[2 Recursos Financieros Transferidos a Consejos de Salud]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="10" y="73" width="120" height="16" uuid="7dc90757-c0f1-479e-bd9c-956cf0e2b594"/>
@@ -789,6 +701,20 @@ Gasto (17)]]></text>
 						<font size="7"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{total_depositado} +  $F{saldo_anterior}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="130" y="41" width="350" height="16" uuid="9496029d-1873-4d35-8690-afac5cf67a89"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{programa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="130" y="56" width="350" height="16" uuid="eed20f41-628d-4ddb-bc8e-b95c76fb3cac"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{subprograma}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>

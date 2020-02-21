@@ -15,8 +15,8 @@ function Decreto(){
    this.tituloplu = "Decretos"   
       
    this.campoid=  'agno';
-   this.tablacampos =  ['agno', 'decreto'];
-   this.etiquetas =  ['Año', 'Decreto',];
+   this.tablacampos =  ['agno', 'decreto', 'programa', 'subprograma'];
+   this.etiquetas =  ['Año', 'Decreto','Programa', 'Sub programa'];
    
    this.tbody_id = "decreto-tb";
       

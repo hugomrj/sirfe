@@ -9,6 +9,8 @@
             <id name="agno" />            
             <column name="agno" />
             <column name="decreto" />
+            <column name="programa" />
+            <column name="subprograma" />
                         
     </table>
     
