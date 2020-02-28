@@ -87,6 +87,21 @@ public class RendicionGastoSQL {
     }        
             
     
+
+    
+    public String anexoB09 (String par_resolucion, Integer par_consejo)  
+            throws Exception {
+    
+        String sql = "";                                 
+        
+        ReaderT reader = new ReaderT("RendicionGasto");
+        reader.fileExt = "anexoB09.sql";
+        sql = reader.get( par_resolucion, par_consejo );          
+    
+        return sql ;             
+    }        
+            
+    
     
     
 }

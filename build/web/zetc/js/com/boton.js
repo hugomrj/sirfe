@@ -17,7 +17,8 @@ var boton =
         
             strhtml = "";            
             strhtml += " <div class=\""+boton.class_c+"\"> ";
-            strhtml += "    <a id=\"btn_"+boton.objeto+"_"+etiqueta.toString().toLowerCase() +"\"" ;
+            strhtml += "    <a id=\"btn_"+boton.objeto+"_"
+                    +etiqueta.toString().replace(" ", "_").toLowerCase() +"\"" ;
             strhtml += "        data-id=\""+indice +"\" ";
             strhtml += "        class=\""+boton.class_a +"\" ";
             strhtml += "        href=\"javascript:void(0);\">";    

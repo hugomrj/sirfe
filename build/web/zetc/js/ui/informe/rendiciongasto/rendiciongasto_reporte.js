@@ -130,7 +130,7 @@ function reporte_form_inicio(dom){
         
         var reporte_acciones = document.getElementById( "reporte-acciones" );
         
-        boton.blabels = ['Imprimir'];          
+        boton.blabels = ['Imprimir' , 'a Excel'];          
         reporte_acciones.innerHTML = boton.get_botton_base();
         
         var btn__imprimir = document.getElementById('btn__imprimir');
@@ -173,6 +173,91 @@ function reporte_form_inicio(dom){
             
         
         
+        
+        
+        var btn__a_excel = document.getElementById('btn__a_excel');
+        btn__a_excel.addEventListener('click',
+            function(event) {        
+                
+                
+                    
+                    var transferencia_resolucion_numero = document.getElementById('transferencia_resolucion_numero');            
+
+                
+                
+                    ajax.url = html.url.absolute()+"/AnexoB09/Reporte/existe"
+                        +"?resolucion="+transferencia_resolucion_numero.value
+                        +"&consejo="+document.getElementById('globlal_consejo').value;                
+                
+                    var ret = ajax.public.json();
+                
+                
+                if (ret.toString().trim() == 'false' ){                    
+                    msg.error.mostrar("No existe datos para el reporte");
+                } 
+                else
+                {
+                    
+                
+                  console.log("mostrar excel");
+                  
+                    
+                    
+                    ajax.url = html.url.absolute()+"/AnexoB09/Reporte/rendicion.xls"
+                        +"?resolucion="+transferencia_resolucion_numero.value
+                        +"&consejo="+document.getElementById('globlal_consejo').value;    
+                    
+                    
+                    
+                    
+                    ajax.req.open("POST", ajax.url, true);
+                    ajax.req.responseType = 'blob';
+                    
+                    ajax.req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    
+                    ajax.req.onload = function (e) {
+                        if (ajax.req.readyState === 4 && ajax.req.status === 200) {
+                            var contenidoEnBlob = ajax.req.response;
+                            var link = document.createElement('a');
+                            link.href = (window.URL || window.webkitURL).createObjectURL(contenidoEnBlob);
+                    
+                            
+                            //link.download = "archivo_"+aa.value+"_"+mm.value+".xls";
+                            link.download = "anexoB09.xls";
+                            
+                            var clicEvent = new MouseEvent('click', {
+                                'view': window,
+                                'bubbles': true,
+                                'cancelable': true
+                            });
+                            link.dispatchEvent(clicEvent);
+
+                            ajax.headers.getResponse();                    
+                            
+                        }
+                        else 
+                        {
+                            if (ajax.req.status === 401){
+                                    ajax.state = ajax.req.status;                   
+                                    html.url.redirect(ajax.state);
+                            }
+                            else{
+                                alert(" No es posible acceder al archivo");
+                            }
+                            
+                        }
+                    };                    
+                    
+                    ajax.headers.setRequest();  
+                    
+                    ajax.req.send();
+                    
+                }
+            },
+            false
+        );    
+            
+                
         
 
 
