@@ -52,6 +52,7 @@ function reporte_form_inicio(dom){
 
 
                         verificacion_consejo_cod.value  = fmtNum(verificacion_consejo_cod.value);
+                        verificacion_consejo_cod.value  = NumQP(verificacion_consejo_cod.value);
 
                         var para = verificacion_consejo_cod.value ;        
                         ajax.url = html.url.absolute()+'/api/consejosalud/'+para ;
@@ -137,11 +138,14 @@ function reporte_form_inicio(dom){
         btn__imprimir.addEventListener('click',
             function(event) {        
                 
+
+                
+                
+                
+                
                 
                     
                     var transferencia_resolucion_numero = document.getElementById('transferencia_resolucion_numero');            
-
-                
                 
                     ajax.url = html.url.absolute()+"/AnexoB09/Reporte/existe"
                         +"?resolucion="+transferencia_resolucion_numero.value
@@ -149,8 +153,7 @@ function reporte_form_inicio(dom){
                 
                     var ret = ajax.public.json();
                     
-                
-                console.log(ret)
+
                 
                 if (ret.toString().trim() == 'false' ){                    
                     msg.error.mostrar("No existe datos para el reporte");
@@ -198,10 +201,6 @@ function reporte_form_inicio(dom){
                 else
                 {
                     
-                
-                  console.log("mostrar excel");
-                  
-                    
                     
                     ajax.url = html.url.absolute()+"/AnexoB09/Reporte/rendicion.xls"
                         +"?resolucion="+transferencia_resolucion_numero.value
@@ -216,14 +215,15 @@ function reporte_form_inicio(dom){
                     ajax.req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     
                     ajax.req.onload = function (e) {
-                        if (ajax.req.readyState === 4 && ajax.req.status === 200) {
+                        if (ajax.req.readyState === 4 && ajax.req.status === 200) {  
                             var contenidoEnBlob = ajax.req.response;
                             var link = document.createElement('a');
                             link.href = (window.URL || window.webkitURL).createObjectURL(contenidoEnBlob);
                     
                             
                             //link.download = "archivo_"+aa.value+"_"+mm.value+".xls";
-                            link.download = "anexoB09.xls";
+                            link.download = "anexoB09_"+transferencia_resolucion_numero.value+"_"
+                                    +document.getElementById('globlal_consejo').value+".xls";
                             
                             var clicEvent = new MouseEvent('click', {
                                 'view': window,

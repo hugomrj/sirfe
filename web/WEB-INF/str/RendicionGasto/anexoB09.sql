@@ -22,7 +22,7 @@ SELECT
   rendiciones_gastos.observacion as rendicion_observacion, 
   consejos_salud.cod, 
   consejos_salud.descripcion, 
-  tipos_comprobantes.descripcion, 
+  tipos_comprobantes.descripcion as comprobante_descripcion, 
   (saldo_anterior + total_depositado) as total_rendir, 
 	decretos.agno, decretos.decreto,  programa, subprograma 
   
