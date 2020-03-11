@@ -488,7 +488,7 @@ function consulta_datos (){
             // recoorrer json para sumar porcentaje
             
             var suma_porcentaje = 0.00;             
-            for (let i in ojson) {    
+            for (var i in ojson) {    
                 //console.log(parseFloat(ojson[i]['cal_porcen']));
 
                  suma_porcentaje = suma_porcentaje + parseFloat(ojson[i]['cal_porcen']);
@@ -503,15 +503,15 @@ function consulta_datos (){
               */
 
             }
+            
+            
+            
             var total_porcentaje = document.getElementById("total_porcentaje");   
             total_porcentaje.innerHTML  = suma_porcentaje.toFixed(2);   
             total_porcentaje.style = "text-align: right";
 
 
-
-            
-
-                
+    
         
 
 }

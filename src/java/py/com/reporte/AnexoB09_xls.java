@@ -70,7 +70,7 @@ public class AnexoB09_xls extends HttpServlet {
                 
                 filexls.iniciar(request);
                 filexls.folder = "/files";                
-                filexls.name = "/base.xls";                
+                filexls.name = "/base"+ par_consejo.toString().trim() +".xls";                
         
                 ArrayList<String> textofijo = new ArrayList<String>();
                 Integer row = 0;
