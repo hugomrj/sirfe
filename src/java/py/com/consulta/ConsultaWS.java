@@ -118,6 +118,9 @@ public class ConsultaWS {
 
     
     
+    
+
+    
 
     
     
@@ -164,6 +167,52 @@ public class ConsultaWS {
                 }
                 
                 
+                
+                return Response
+                        .status(Response.Status.OK)
+                        .entity( json )
+                        .header("token", autorizacion.encriptar())                        
+                        .build();                       
+            }
+            else{
+                
+                return Response
+                    .status(Response.Status.UNAUTHORIZED)
+                    .header("token", null)
+                    .build();     
+                
+            }        
+        }     
+        catch (Exception ex) {
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error")
+                    .header("token", autorizacion.encriptar())
+                    .build();                                        
+        }      
+    }    
+    
+
+    
+    
+    @GET        
+    @Path("/consulta002/totaltodos"   )    
+    public Response consulta002_totaltodos (
+            
+            @HeaderParam("token") String strToken
+            ) {
+        
+
+        try {                    
+           
+            if (autorizacion.verificar(strToken))
+            {                
+                autorizacion.actualizar();                                
+                
+                String json = "[]";
+                    
+                    JsonArray jsonarray = new ConsultaJSON().consulta002_totaltodos();
+                    json = jsonarray.toString();                
                 
                 return Response
                         .status(Response.Status.OK)

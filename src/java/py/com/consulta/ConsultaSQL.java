@@ -31,8 +31,7 @@ public class ConsultaSQL {
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta);              
         }
-        else{
-            
+        else{           
             
             readerSQL.fileExt = "consulta001_tipo.sql";
 
@@ -40,15 +39,9 @@ public class ConsultaSQL {
                     fecha_desde, fecha_hasta,
                     dpto_desde, dpto_hasta,
                     consejo_desde, consejo_hasta,
-                    tipo );                                  
-            
+                    tipo );                                      
         }
-        
-        
-
-        
         return sql ;                     
-        
         
     }
     
@@ -96,6 +89,23 @@ public class ConsultaSQL {
                         );                                  
             
         }        
+        
+        
+        return sql ;                     
+    }
+    
+    
+    public String consulta002_totaltodos  () 
+            throws IOException {
+        
+        String sql = "";                                 
+        ReaderT readerSQL = new ReaderT("Consulta");
+
+            
+            readerSQL.fileExt = "consulta002_totaltodos.sql";
+
+            sql = readerSQL.get(  );              
+
         
         
         return sql ;                     

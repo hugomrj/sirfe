@@ -127,9 +127,52 @@ public class FileXls extends FileBin {
             
             this.newfila(nrofila);
             
-            for (String campo : this.campos) {        
-                String em = resulset.getString(campo);                
-                this.getFila().createCell(i).setCellValue( em );
+            for (String campo : this.campos) {   
+                
+                String em = "";                
+
+                if (resulset.getString(campo) != null){
+                    em = resulset.getString(campo);                    
+                    String cad = em;
+                    
+
+
+                    
+                    try {
+                        Long num = Long.parseLong(cad);
+                        this.getFila().createCell(i).setCellValue(Long.parseLong(cad));
+                    }
+                    catch (NumberFormatException nfe) {
+                        this.getFila().createCell(i).setCellValue( em );
+                    }                    
+                    
+         /*           
+                    //if (cad.matches("[0-9]*")){
+                    if ( Long.parseLong(cad) ){
+                        
+                    }
+                    else{
+                        
+                    }  
+*/
+                    
+                    
+                }
+
+                
+
+                
+    //            String em = resulset.getString(campo);                
+
+//System.out.println(em);
+
+
+                
+                
+                
+
+          
+                
                 i++;
             }            
             nrofila++;
@@ -137,6 +180,10 @@ public class FileXls extends FileBin {
                  
 
     }            
+
+
+
+
 
     
     

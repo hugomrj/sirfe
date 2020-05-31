@@ -90,6 +90,22 @@ public class ConsultaRS  {
     }
    
                       
+   
+    public ResultSet  consulta002_totaltodos () 
+            throws Exception {
+
+        
+            statement = conexion.getConexion().createStatement();                  
+            String sql = new ConsultaSQL().consulta002_totaltodos ();
+            
+            resultset = statement.executeQuery(sql);     
+            
+            conexion.desconectar();                
+            return resultset;                 
+            
+    }
+   
+                      
     
    
     public ResultSet  consulta003 (            

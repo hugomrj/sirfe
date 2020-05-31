@@ -56,6 +56,8 @@ function consulta_form_inicio(){
         consulta_interaccion();
         
         consulta_datos ();        
+        
+        archivoxml();
     
 }
         
@@ -508,12 +510,150 @@ function consulta_datos (){
             total_porcentaje.style = "text-align: right";
 
             
-
             
+            
+            // totales general 
+            var total_general_todos = document.getElementById("total_general_todos");
+            total_general_todos.innerHTML  = "0";
 
+            var total_porcentaje_todos = document.getElementById("total_porcentaje_todos");
+            total_porcentaje_todos.innerHTML  = "0.00";
+
+
+
+        if (tabla.json.trim() !== "[]"){
+            
+                ajax.url = html.url.absolute()+'/api/consultas/consulta002/totaltodos';                
+                ajax.metodo = "GET";   
+                var json = ajax.private.json();           
+                var ojson = JSON.parse(json) ;   
+                total_general_todos.innerHTML = fmtNum( ojson[0]['total_depositado_todos'] );
                 
+                var tg = Number(NumQP(total_general_todos.innerHTML));
+                var tp = parseFloat(total_porcentaje_todos.innerHTML);
+                var gr = Number(NumQP(general_rendicion.innerHTML));
+                
+                var ptt = ( (gr / tg ) * 100 );
+                total_porcentaje_todos.innerHTML  = ptt.toFixed(2);   ;
+        }
+
+
+            total_general_todos.style = "text-align: right";
+            total_porcentaje_todos.style = "text-align: right";
+
         
 
 }
     
+
+
+
+
+
+function archivoxml() {
+    
+    
+    
+        var estado_resolucion = document.getElementById("estado_resolucion");    
+        var fecha_desde = document.getElementById("fecha_desde");
+        var fecha_hasta = document.getElementById("fecha_hasta");
+        var dpto_desde = document.getElementById("dpto_desde");
+        var dpto_hasta = document.getElementById("dpto_hasta");
+        var consejo_desde = document.getElementById("consejo_desde");
+        var consejo_hasta = document.getElementById("consejo_hasta");
+        var objeto_desde = document.getElementById('objeto_desde');    
+        var objeto_hasta = document.getElementById('objeto_hasta');    
+        var tipo_transferencia = document.getElementById("tipo_transferencia");
+    
+    
+    
+
+            var btn_aexcel = document.getElementById('btn_aexcel'); 
+            btn_aexcel.addEventListener('click',
+                function(event) {     
+                    
+                    
+                var consulta_tb = document.getElementById('consulta-tb');
+    
+                if (consulta_tb.innerHTML == ""){                    
+                    msg.error.mostrar("No existen datos");                    
+                    return;
+                }
+
+  
+    
+             
+                ajax.url = html.url.absolute()+"/consulta/publico/002.xls"
+                        +"?estado_resolucion="+estado_resolucion.value 
+                        +"&fecha_desde="+dateToString ( fecha_desde.value ) 
+                        +"&fecha_hasta="+dateToString ( fecha_hasta.value ) 
+                        +"&dpto_desde="+dpto_desde.value
+                        +"&dpto_hasta="+dpto_hasta.value
+                        +"&consejo_desde="+consejo_desde.value
+                        +"&consejo_hasta="+consejo_hasta.value                    
+                        +"&objeto_desde="+objeto_desde.value
+                        +"&objeto_hasta="+objeto_hasta.value
+                            +"&tipo_transferencia="+tipo_transferencia.value ;
+                    
+                    
+                    
+                    //var xhr = new XMLHttpRequest();
+                    ajax.req.open("POST", ajax.url, true);
+                    ajax.req.responseType = 'blob';
+                    //Send the proper header information along with the request
+                    ajax.req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    
+                    
+                    ajax.req.onload = function (e) {
+                        if (ajax.req.readyState === 4 && ajax.req.status === 200) {
+                            var contenidoEnBlob = ajax.req.response;
+                            var link = document.createElement('a');
+                            link.href = (window.URL || window.webkitURL).createObjectURL(contenidoEnBlob);
+                            
+                          //  link.download = "archivo_"+aa.value+"_"+mm.value+"_"+selected +".xls";
+                            link.download = "archivo.xls";
+                            
+                            
+                            var clicEvent = new MouseEvent('click', {
+                                'view': window,
+                                'bubbles': true,
+                                'cancelable': true
+                            });
+                            //Simulamos un clic del usuario
+                            //no es necesario agregar el link al DOM.
+                            link.dispatchEvent(clicEvent);
+                            //link.click();
+                            
+                            ajax.headers.getResponse();                    
+                            
+                        }
+                        else 
+                        {
+                            if (ajax.req.status === 401){
+                                    ajax.state = ajax.req.status;                   
+                                    html.url.redirect(ajax.state);
+                            }
+                            else{
+                                alert(" No es posible acceder al archivo");
+                            }
+                            
+                        }
+                    };                    
+                    
+                    
+                    ajax.headers.setRequest();  
+                    
+                    ajax.req.send();
+                    
+                    //ajax.headers.getResponse();                    
+
+                  
+                },
+                false
+            );    
+
+    
+  
+  
+}
 

@@ -172,6 +172,43 @@ public class ConsultaJSON  {
           
     
     
+
+    public JsonArray  consulta002_totaltodos () {
+        
+        Map<String, String> map = null;        
+        JsonArray jsonarray = new JsonArray();      
+        RegistroMap registoMap = new RegistroMap();     
+        Gson gson = new Gson();               
+        
+        
+        try 
+        {   
+            
+            ConsultaRS rs = new ConsultaRS();            
+            ResultSet resulset = rs.consulta002_totaltodos ();                
+                    
+            while(resulset.next()) 
+            {  
+                map = registoMap.convertirHashMap(resulset);     
+                JsonElement element = gson.fromJson(gson.toJson(map)  , JsonElement.class);        
+                jsonarray.add( element );
+            }                    
+            this.total_registros = rs.total_registros  ;   
+            
+            
+        }         
+        catch (Exception ex) {                        
+            System.out.println(ex.getMessage());
+            throw new Exception(ex);
+        }
+        finally
+        {
+            return jsonarray ;         
+        }
+    }      
+          
+    
+    
               
 
     public JsonArray  consulta003 (            

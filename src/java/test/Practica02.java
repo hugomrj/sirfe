@@ -9,6 +9,8 @@ package test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,8 @@ import py.com.base.sistema.usuario.UsuarioExt;
 import py.com.base.sistema.usuario.UsuarioSQL;
 import py.com.base.sistema.usuario_rol.UsuarioRol;
 import py.com.base.sistema.usuario_rol.UsuarioRolDAO;
+import py.com.consulta.ConsultaJSON;
+import py.com.consulta.ConsultaRS;
 
 
 
@@ -51,26 +55,35 @@ public class Practica02 {
             Persistencia persistencia = new Persistencia();
                
             
-            
-            
-            //String json = "\"consejo\":100,\"transferencia_numero\":\"44/44\",\"comprobante_numero\":5000,\"objetogasto\":{ \"objeto\":\"132\" },\"fecha\":\"2019-09-12\",\"importe\":4000,\"observacion\":\"\", \"tipo_comprobante\" :{  \"tipo_comprobante\": \"1\"} ";
-            //String json = "{\"consejosalud\":{ \"consejo\":100 },\"transferencia_numero\":\"44/44\",\"comprobante_numero\":444,\"objetogasto\":{ \"objeto\":\"100\" },\"fecha\":\"2019-09-19\",\"importe\":45454,\"observacion\":\"\", \"tipo_comprobante\":{  \"tipo_comprobante\": \"1\"} }";
-           
-            //String json = "{\"consejosalud\":{ \"consejo\":100 },\"transferencia_numero\":\"5/01\",\"comprobante_numero\":444,\"objetogasto\":{ \"objeto\":\"100\" },\"fecha\":\"2019-09-06\",\"importe\":4454,\"observacion\":\"sfffafsd\", \"tipo_comprobante\" :{  \"tipo_comprobante\": \"1\"} }";
-            //String json = "{\"consejosalud\":{ \"consejo\":100 },\"transferencia_numero\":\"5/01\",\"comprobante_numero\":444,\"objeto\":{ \"objeto\":\"100\" },\"fecha\":\"2019-09-06\",\"importe\":4454,\"observacion\":\"sfffafsd\", \"tipo_comprobante\" :{  \"tipo_comprobante\": \"1\"} }";
-            
-            
-//            String json = "{\"transferencia_numero\":\"44/44\",\"comprobante_numero\":444,\"objeto\":{ \"objeto\":\"100\" },\"fecha\":\"2019-09-06\",\"importe\":45545,\"observacion\":\"\", \"tipo_comprobante\" :{  \"tipo_comprobante\": \"1\"} }";
-
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();                
-                
-                TransferenciaFondoJSON jsonarray = new TransferenciaFondoJSON();
-                
-                String json = jsonarray.list_resolucion(1).toString();
+                String json = "";
 
                 
-                
-            System.out.println( json);
+                    JsonArray jsonarray = new ConsultaJSON()
+                            .consulta001("20100101", "20201010", 
+                            0, 999, 
+                            0, 999, 
+                            0);
+                    
+                    
+                    
+                    
+                            ConsultaRS rs = new ConsultaRS();            
+                            ResultSet resulset = rs.consulta001("20100101", "20201010", 
+                            0, 999, 
+                            0, 999, 
+                            0);
+                    
+                            
+                            
+                            
+                            while (resulset.next()) {                                  
+                                System.out.println(resulset.getString("dpto"));
+                            }                    
+        
+                            
+                            
+                    json = jsonarray.toString();
+                    System.out.println( json);
             
                 
             

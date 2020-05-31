@@ -11,23 +11,18 @@
             <web-module-libraries>
                 <library dirs="200">
                     <file>${libs.restapi.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${libs.restlib.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.Gson.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${libs.PostgreSQLDriver.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${libs.JasperReports.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
+                    <file>${libs.gson.classpath}</file>
+                </library>
+                <library dirs="200">
+                    <file>${libs.jasper-6.1.0.classpath}</file>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
